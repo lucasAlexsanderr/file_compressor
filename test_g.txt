@@ -1,0 +1,1005 @@
+=================================================================
+ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
+Sistema de Compressão - Algoritmo Guloso
+=================================================================
+
+SEÇÃO 1: TEXTO REPETITIVO (Alta Compressão Esperada)
+-----------------------------------------------------------------
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+
+Este texto se repete muitas vezes para testar a eficiência da
+compressão em dados redundantes. A codificação de Huffman deve
+atribuir códigos mais curtos para os caracteres mais frequentes,
+resultando em uma taxa de compressão significativa.
+
+SEÇÃO 2: DADOS ESTRUTURADOS (JSON/XML-like)
+-----------------------------------------------------------------
+{
+  "sensor1": {
+    "temperatura": 25.3,
+    "umidade": 60,
+    "pressao": 1013,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor2": {
+    "temperatura": 26.1,
+    "umidade": 58,
+    "pressao": 1012,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor3": {
+    "temperatura": 24.8,
+    "umidade": 62,
+    "pressao": 1014,
+    "timestamp": "2024-11-19T17:45:00Z"
+  }
+}
+
+SEÇÃO 3: CÓDIGO-FONTE (Padrões em Sintaxe)
+-----------------------------------------------------------------
+public class ExemploCompressao {
+    private static final int CONSTANTE = 100;
+
+    public void metodoExemplo() {
+        for (int i = 0; i < CONSTANTE; i++) {
+            System.out.println("Iteração: " + i);
+            processarDados(i);
+        }
+    }
+
+    private void processarDados(int valor) {
+        if (valor % 2 == 0) {
+            System.out.println("Par: " + valor);
+        } else {
+            System.out.println("Ímpar: " + valor);
+        }
+    }
+}
+
+SEÇÃO 4: TEXTO NATURAL (Português)
+-----------------------------------------------------------------
+O algoritmo de Huffman é uma técnica de compressão sem perdas
+desenvolvida por David A. Huffman em 1952. Ele utiliza uma estratégia
+gulosa para construir uma árvore binária onde os caracteres mais
+frequentes recebem códigos binários mais curtos, enquanto caracteres
+menos frequentes recebem códigos mais longos.
+
+A compressão funciona particularmente bem em textos com alta
+redundância e padrões repetitivos. Por exemplo, em um texto em
+português, as letras 'a', 'e', 'o' aparecem com muito mais
+frequência que 'k', 'w', 'y'. O algoritmo explora essa propriedade
+estatística da linguagem para reduzir o tamanho total dos dados.
+
+SEÇÃO 5: DADOS NUMÉRICOS E LOGS
+-----------------------------------------------------------------
+[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
+[2024-11-19 17:30:02] DEBUG Carregando configurações...
+[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
+[2024-11-19 17:30:04] INFO  Banco de dados conectado
+[2024-11-19 17:30:05] WARN  Cache não encontrado, criando novo
+[2024-11-19 17:30:06] INFO  100 requisições processadas
+[2024-11-19 17:30:07] INFO  200 requisições processadas
+[2024-11-19 17:30:08] INFO  300 requisições processadas
+[2024-11-19 17:30:09] ERROR Falha ao processar requisição ID:12345
+[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
+[2024-11-19 17:30:11] INFO  400 requisições processadas
+[2024-11-19 17:30:12] INFO  500 requisições processadas
+
+SEÇÃO 6: CARACTERES ESPECIAIS E UNICODE
+-----------------------------------------------------------------
+Símbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
+Acentuação: áéíóú àèìòù âêîôû ãõ äëïöü ç ñ
+Matemática: ∑ ∫ √ π ∞ ≠ ≤ ≥ ± × ÷
+Moedas: $ € £ ¥ ₹ ₽ ₩ ₪
+Setas: ← → ↑ ↓ ↔ ⇐ ⇒ ⇑ ⇓ ⇔
+
+SEÇÃO 7: SEQUÊNCIAS BINÁRIAS E HEXADECIMAIS
+-----------------------------------------------------------------
+Binary:  01010101 11001100 10101010 00110011
+Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
+Decimal: 12345 67890 11111 22222 33333 44444 55555
+
+SEÇÃO 8: POEMA (Estrutura e Ritmo)
+-----------------------------------------------------------------
+Nas asas do vento digital
+Viajam bits de luz ancestral
+Comprimidos em códigos binários
+Atravessam circuitos ordinários
+
+Huffman com seu algoritmo sábio
+Torna pequeno o que era vário
+E na árvore de sua criação
+Cada folha é informação
+
+SEÇÃO 9: REPETIÇÃO EXTREMA (Teste de Eficiência)
+-----------------------------------------------------------------
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+SEÇÃO 10: TABELA ASCII
+-----------------------------------------------------------------
+| Char | Dec | Hex | Bin      |
+|------|-----|-----|----------|
+| A    | 65  | 41  | 01000001 |
+| B    | 66  | 42  | 01000010 |
+| C    | 67  | 43  | 01000011 |
+| a    | 97  | 61  | 01100001 |
+| b    | 98  | 62  | 01100010 |
+| c    | 99  | 63  | 01100011 |
+| 0    | 48  | 30  | 00110000 |
+| 1    | 49  | 31  | 00110001 |
+| 2    | 50  | 32  | 00110010 |
+
+SEÇÃO 11: DADOS CSV
+-----------------------------------------------------------------
+Nome,Idade,Cidade,Profissão
+João Silva,25,São Paulo,Engenheiro
+Maria Santos,30,Rio de Janeiro,Médica
+Pedro Oliveira,35,Belo Horizonte,Professor
+Ana Costa,28,Porto Alegre,Designer
+Carlos Souza,32,Curitiba,Desenvolvedor
+Juliana Lima,27,Brasília,Advogada
+Roberto Alves,29,Fortaleza,Arquiteto
+
+SEÇÃO 12: COMANDOS LINUX (Alta Repetição)
+-----------------------------------------------------------------
+$ ls -la
+$ cd /home/usuario
+$ mkdir projetos
+$ cd projetos
+$ git clone https://github.com/usuario/repositorio.git
+$ cd repositorio
+$ npm install
+$ npm start
+$ git status
+$ git add .
+$ git commit -m "Update files"
+$ git push origin main
+
+SEÇÃO 13: FINALIZAÇÃO E ESTATÍSTICAS
+-----------------------------------------------------------------
+Este arquivo foi especialmente projetado para testar a compressão
+Huffman com diversos tipos de conteúdo:
+
+✓ Texto altamente repetitivo (Seção 1, 9)
+✓ Dados estruturados JSON (Seção 2)
+✓ Código-fonte com sintaxe (Seção 3)
+✓ Linguagem natural (Seção 4)
+✓ Logs com timestamps (Seção 5)
+✓ Unicode e caracteres especiais (Seção 6)
+✓ Dados binários e hexadecimais (Seção 7)
+✓ Poesia com estrutura (Seção 8)
+✓ Tabelas e CSV (Seção 10, 11)
+✓ Comandos de terminal (Seção 12)
+
+ESTATÍSTICAS ESPERADAS:
+- Tamanho aproximado: 6-8 KB
+- Taxa de compressão esperada: 45-60%
+- Bytes únicos: ~100-150 (de 256 possíveis)
+- Caracteres mais frequentes: espaço, 'a', 'e', 'o', '\n'
+
+=================================================================
+FIM DO ARQUIVO DE TESTE
+=================================================================
+=================================================================
+ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
+Sistema de Compressão - Algoritmo Guloso
+=================================================================
+
+SEÇÃO 1: TEXTO REPETITIVO (Alta Compressão Esperada)
+-----------------------------------------------------------------
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+
+Este texto se repete muitas vezes para testar a eficiência da
+compressão em dados redundantes. A codificação de Huffman deve
+atribuir códigos mais curtos para os caracteres mais frequentes,
+resultando em uma taxa de compressão significativa.
+
+SEÇÃO 2: DADOS ESTRUTURADOS (JSON/XML-like)
+-----------------------------------------------------------------
+{
+  "sensor1": {
+    "temperatura": 25.3,
+    "umidade": 60,
+    "pressao": 1013,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor2": {
+    "temperatura": 26.1,
+    "umidade": 58,
+    "pressao": 1012,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor3": {
+    "temperatura": 24.8,
+    "umidade": 62,
+    "pressao": 1014,
+    "timestamp": "2024-11-19T17:45:00Z"
+  }
+}
+
+SEÇÃO 3: CÓDIGO-FONTE (Padrões em Sintaxe)
+-----------------------------------------------------------------
+public class ExemploCompressao {
+    private static final int CONSTANTE = 100;
+
+    public void metodoExemplo() {
+        for (int i = 0; i < CONSTANTE; i++) {
+            System.out.println("Iteração: " + i);
+            processarDados(i);
+        }
+    }
+
+    private void processarDados(int valor) {
+        if (valor % 2 == 0) {
+            System.out.println("Par: " + valor);
+        } else {
+            System.out.println("Ímpar: " + valor);
+        }
+    }
+}
+
+SEÇÃO 4: TEXTO NATURAL (Português)
+-----------------------------------------------------------------
+O algoritmo de Huffman é uma técnica de compressão sem perdas
+desenvolvida por David A. Huffman em 1952. Ele utiliza uma estratégia
+gulosa para construir uma árvore binária onde os caracteres mais
+frequentes recebem códigos binários mais curtos, enquanto caracteres
+menos frequentes recebem códigos mais longos.
+
+A compressão funciona particularmente bem em textos com alta
+redundância e padrões repetitivos. Por exemplo, em um texto em
+português, as letras 'a', 'e', 'o' aparecem com muito mais
+frequência que 'k', 'w', 'y'. O algoritmo explora essa propriedade
+estatística da linguagem para reduzir o tamanho total dos dados.
+
+SEÇÃO 5: DADOS NUMÉRICOS E LOGS
+-----------------------------------------------------------------
+[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
+[2024-11-19 17:30:02] DEBUG Carregando configurações...
+[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
+[2024-11-19 17:30:04] INFO  Banco de dados conectado
+[2024-11-19 17:30:05] WARN  Cache não encontrado, criando novo
+[2024-11-19 17:30:06] INFO  100 requisições processadas
+[2024-11-19 17:30:07] INFO  200 requisições processadas
+[2024-11-19 17:30:08] INFO  300 requisições processadas
+[2024-11-19 17:30:09] ERROR Falha ao processar requisição ID:12345
+[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
+[2024-11-19 17:30:11] INFO  400 requisições processadas
+[2024-11-19 17:30:12] INFO  500 requisições processadas
+
+SEÇÃO 6: CARACTERES ESPECIAIS E UNICODE
+-----------------------------------------------------------------
+Símbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
+Acentuação: áéíóú àèìòù âêîôû ãõ äëïöü ç ñ
+Matemática: ∑ ∫ √ π ∞ ≠ ≤ ≥ ± × ÷
+Moedas: $ € £ ¥ ₹ ₽ ₩ ₪
+Setas: ← → ↑ ↓ ↔ ⇐ ⇒ ⇑ ⇓ ⇔
+
+SEÇÃO 7: SEQUÊNCIAS BINÁRIAS E HEXADECIMAIS
+-----------------------------------------------------------------
+Binary:  01010101 11001100 10101010 00110011
+Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
+Decimal: 12345 67890 11111 22222 33333 44444 55555
+
+SEÇÃO 8: POEMA (Estrutura e Ritmo)
+-----------------------------------------------------------------
+Nas asas do vento digital
+Viajam bits de luz ancestral
+Comprimidos em códigos binários
+Atravessam circuitos ordinários
+
+Huffman com seu algoritmo sábio
+Torna pequeno o que era vário
+E na árvore de sua criação
+Cada folha é informação
+
+SEÇÃO 9: REPETIÇÃO EXTREMA (Teste de Eficiência)
+-----------------------------------------------------------------
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+SEÇÃO 10: TABELA ASCII
+-----------------------------------------------------------------
+| Char | Dec | Hex | Bin      |
+|------|-----|-----|----------|
+| A    | 65  | 41  | 01000001 |
+| B    | 66  | 42  | 01000010 |
+| C    | 67  | 43  | 01000011 |
+| a    | 97  | 61  | 01100001 |
+| b    | 98  | 62  | 01100010 |
+| c    | 99  | 63  | 01100011 |
+| 0    | 48  | 30  | 00110000 |
+| 1    | 49  | 31  | 00110001 |
+| 2    | 50  | 32  | 00110010 |
+
+SEÇÃO 11: DADOS CSV
+-----------------------------------------------------------------
+Nome,Idade,Cidade,Profissão
+João Silva,25,São Paulo,Engenheiro
+Maria Santos,30,Rio de Janeiro,Médica
+Pedro Oliveira,35,Belo Horizonte,Professor
+Ana Costa,28,Porto Alegre,Designer
+Carlos Souza,32,Curitiba,Desenvolvedor
+Juliana Lima,27,Brasília,Advogada
+Roberto Alves,29,Fortaleza,Arquiteto
+
+SEÇÃO 12: COMANDOS LINUX (Alta Repetição)
+-----------------------------------------------------------------
+$ ls -la
+$ cd /home/usuario
+$ mkdir projetos
+$ cd projetos
+$ git clone https://github.com/usuario/repositorio.git
+$ cd repositorio
+$ npm install
+$ npm start
+$ git status
+$ git add .
+$ git commit -m "Update files"
+$ git push origin main
+
+SEÇÃO 13: FINALIZAÇÃO E ESTATÍSTICAS
+-----------------------------------------------------------------
+Este arquivo foi especialmente projetado para testar a compressão
+Huffman com diversos tipos de conteúdo:
+
+✓ Texto altamente repetitivo (Seção 1, 9)
+✓ Dados estruturados JSON (Seção 2)
+✓ Código-fonte com sintaxe (Seção 3)
+✓ Linguagem natural (Seção 4)
+✓ Logs com timestamps (Seção 5)
+✓ Unicode e caracteres especiais (Seção 6)
+✓ Dados binários e hexadecimais (Seção 7)
+✓ Poesia com estrutura (Seção 8)
+✓ Tabelas e CSV (Seção 10, 11)
+✓ Comandos de terminal (Seção 12)
+
+ESTATÍSTICAS ESPERADAS:
+- Tamanho aproximado: 6-8 KB
+- Taxa de compressão esperada: 45-60%
+- Bytes únicos: ~100-150 (de 256 possíveis)
+- Caracteres mais frequentes: espaço, 'a', 'e', 'o', '\n'
+
+=================================================================
+FIM DO ARQUIVO DE TESTE
+=================================================================
+=================================================================
+ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
+Sistema de Compressão - Algoritmo Guloso
+=================================================================
+
+SEÇÃO 1: TEXTO REPETITIVO (Alta Compressão Esperada)
+-----------------------------------------------------------------
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+
+Este texto se repete muitas vezes para testar a eficiência da
+compressão em dados redundantes. A codificação de Huffman deve
+atribuir códigos mais curtos para os caracteres mais frequentes,
+resultando em uma taxa de compressão significativa.
+
+SEÇÃO 2: DADOS ESTRUTURADOS (JSON/XML-like)
+-----------------------------------------------------------------
+{
+  "sensor1": {
+    "temperatura": 25.3,
+    "umidade": 60,
+    "pressao": 1013,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor2": {
+    "temperatura": 26.1,
+    "umidade": 58,
+    "pressao": 1012,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor3": {
+    "temperatura": 24.8,
+    "umidade": 62,
+    "pressao": 1014,
+    "timestamp": "2024-11-19T17:45:00Z"
+  }
+}
+
+SEÇÃO 3: CÓDIGO-FONTE (Padrões em Sintaxe)
+-----------------------------------------------------------------
+public class ExemploCompressao {
+    private static final int CONSTANTE = 100;
+
+    public void metodoExemplo() {
+        for (int i = 0; i < CONSTANTE; i++) {
+            System.out.println("Iteração: " + i);
+            processarDados(i);
+        }
+    }
+
+    private void processarDados(int valor) {
+        if (valor % 2 == 0) {
+            System.out.println("Par: " + valor);
+        } else {
+            System.out.println("Ímpar: " + valor);
+        }
+    }
+}
+
+SEÇÃO 4: TEXTO NATURAL (Português)
+-----------------------------------------------------------------
+O algoritmo de Huffman é uma técnica de compressão sem perdas
+desenvolvida por David A. Huffman em 1952. Ele utiliza uma estratégia
+gulosa para construir uma árvore binária onde os caracteres mais
+frequentes recebem códigos binários mais curtos, enquanto caracteres
+menos frequentes recebem códigos mais longos.
+
+A compressão funciona particularmente bem em textos com alta
+redundância e padrões repetitivos. Por exemplo, em um texto em
+português, as letras 'a', 'e', 'o' aparecem com muito mais
+frequência que 'k', 'w', 'y'. O algoritmo explora essa propriedade
+estatística da linguagem para reduzir o tamanho total dos dados.
+
+SEÇÃO 5: DADOS NUMÉRICOS E LOGS
+-----------------------------------------------------------------
+[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
+[2024-11-19 17:30:02] DEBUG Carregando configurações...
+[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
+[2024-11-19 17:30:04] INFO  Banco de dados conectado
+[2024-11-19 17:30:05] WARN  Cache não encontrado, criando novo
+[2024-11-19 17:30:06] INFO  100 requisições processadas
+[2024-11-19 17:30:07] INFO  200 requisições processadas
+[2024-11-19 17:30:08] INFO  300 requisições processadas
+[2024-11-19 17:30:09] ERROR Falha ao processar requisição ID:12345
+[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
+[2024-11-19 17:30:11] INFO  400 requisições processadas
+[2024-11-19 17:30:12] INFO  500 requisições processadas
+
+SEÇÃO 6: CARACTERES ESPECIAIS E UNICODE
+-----------------------------------------------------------------
+Símbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
+Acentuação: áéíóú àèìòù âêîôû ãõ äëïöü ç ñ
+Matemática: ∑ ∫ √ π ∞ ≠ ≤ ≥ ± × ÷
+Moedas: $ € £ ¥ ₹ ₽ ₩ ₪
+Setas: ← → ↑ ↓ ↔ ⇐ ⇒ ⇑ ⇓ ⇔
+
+SEÇÃO 7: SEQUÊNCIAS BINÁRIAS E HEXADECIMAIS
+-----------------------------------------------------------------
+Binary:  01010101 11001100 10101010 00110011
+Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
+Decimal: 12345 67890 11111 22222 33333 44444 55555
+
+SEÇÃO 8: POEMA (Estrutura e Ritmo)
+-----------------------------------------------------------------
+Nas asas do vento digital
+Viajam bits de luz ancestral
+Comprimidos em códigos binários
+Atravessam circuitos ordinários
+
+Huffman com seu algoritmo sábio
+Torna pequeno o que era vário
+E na árvore de sua criação
+Cada folha é informação
+
+SEÇÃO 9: REPETIÇÃO EXTREMA (Teste de Eficiência)
+-----------------------------------------------------------------
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+SEÇÃO 10: TABELA ASCII
+-----------------------------------------------------------------
+| Char | Dec | Hex | Bin      |
+|------|-----|-----|----------|
+| A    | 65  | 41  | 01000001 |
+| B    | 66  | 42  | 01000010 |
+| C    | 67  | 43  | 01000011 |
+| a    | 97  | 61  | 01100001 |
+| b    | 98  | 62  | 01100010 |
+| c    | 99  | 63  | 01100011 |
+| 0    | 48  | 30  | 00110000 |
+| 1    | 49  | 31  | 00110001 |
+| 2    | 50  | 32  | 00110010 |
+
+SEÇÃO 11: DADOS CSV
+-----------------------------------------------------------------
+Nome,Idade,Cidade,Profissão
+João Silva,25,São Paulo,Engenheiro
+Maria Santos,30,Rio de Janeiro,Médica
+Pedro Oliveira,35,Belo Horizonte,Professor
+Ana Costa,28,Porto Alegre,Designer
+Carlos Souza,32,Curitiba,Desenvolvedor
+Juliana Lima,27,Brasília,Advogada
+Roberto Alves,29,Fortaleza,Arquiteto
+
+SEÇÃO 12: COMANDOS LINUX (Alta Repetição)
+-----------------------------------------------------------------
+$ ls -la
+$ cd /home/usuario
+$ mkdir projetos
+$ cd projetos
+$ git clone https://github.com/usuario/repositorio.git
+$ cd repositorio
+$ npm install
+$ npm start
+$ git status
+$ git add .
+$ git commit -m "Update files"
+$ git push origin main
+
+SEÇÃO 13: FINALIZAÇÃO E ESTATÍSTICAS
+-----------------------------------------------------------------
+Este arquivo foi especialmente projetado para testar a compressão
+Huffman com diversos tipos de conteúdo:
+
+✓ Texto altamente repetitivo (Seção 1, 9)
+✓ Dados estruturados JSON (Seção 2)
+✓ Código-fonte com sintaxe (Seção 3)
+✓ Linguagem natural (Seção 4)
+✓ Logs com timestamps (Seção 5)
+✓ Unicode e caracteres especiais (Seção 6)
+✓ Dados binários e hexadecimais (Seção 7)
+✓ Poesia com estrutura (Seção 8)
+✓ Tabelas e CSV (Seção 10, 11)
+✓ Comandos de terminal (Seção 12)
+
+ESTATÍSTICAS ESPERADAS:
+- Tamanho aproximado: 6-8 KB
+- Taxa de compressão esperada: 45-60%
+- Bytes únicos: ~100-150 (de 256 possíveis)
+- Caracteres mais frequentes: espaço, 'a', 'e', 'o', '\n'
+
+=================================================================
+FIM DO ARQUIVO DE TESTE
+=================================================================
+=================================================================
+ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
+Sistema de Compressão - Algoritmo Guloso
+=================================================================
+
+SEÇÃO 1: TEXTO REPETITIVO (Alta Compressão Esperada)
+-----------------------------------------------------------------
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+
+Este texto se repete muitas vezes para testar a eficiência da
+compressão em dados redundantes. A codificação de Huffman deve
+atribuir códigos mais curtos para os caracteres mais frequentes,
+resultando em uma taxa de compressão significativa.
+
+SEÇÃO 2: DADOS ESTRUTURADOS (JSON/XML-like)
+-----------------------------------------------------------------
+{
+  "sensor1": {
+    "temperatura": 25.3,
+    "umidade": 60,
+    "pressao": 1013,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor2": {
+    "temperatura": 26.1,
+    "umidade": 58,
+    "pressao": 1012,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor3": {
+    "temperatura": 24.8,
+    "umidade": 62,
+    "pressao": 1014,
+    "timestamp": "2024-11-19T17:45:00Z"
+  }
+}
+
+SEÇÃO 3: CÓDIGO-FONTE (Padrões em Sintaxe)
+-----------------------------------------------------------------
+public class ExemploCompressao {
+    private static final int CONSTANTE = 100;
+
+    public void metodoExemplo() {
+        for (int i = 0; i < CONSTANTE; i++) {
+            System.out.println("Iteração: " + i);
+            processarDados(i);
+        }
+    }
+
+    private void processarDados(int valor) {
+        if (valor % 2 == 0) {
+            System.out.println("Par: " + valor);
+        } else {
+            System.out.println("Ímpar: " + valor);
+        }
+    }
+}
+
+SEÇÃO 4: TEXTO NATURAL (Português)
+-----------------------------------------------------------------
+O algoritmo de Huffman é uma técnica de compressão sem perdas
+desenvolvida por David A. Huffman em 1952. Ele utiliza uma estratégia
+gulosa para construir uma árvore binária onde os caracteres mais
+frequentes recebem códigos binários mais curtos, enquanto caracteres
+menos frequentes recebem códigos mais longos.
+
+A compressão funciona particularmente bem em textos com alta
+redundância e padrões repetitivos. Por exemplo, em um texto em
+português, as letras 'a', 'e', 'o' aparecem com muito mais
+frequência que 'k', 'w', 'y'. O algoritmo explora essa propriedade
+estatística da linguagem para reduzir o tamanho total dos dados.
+
+SEÇÃO 5: DADOS NUMÉRICOS E LOGS
+-----------------------------------------------------------------
+[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
+[2024-11-19 17:30:02] DEBUG Carregando configurações...
+[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
+[2024-11-19 17:30:04] INFO  Banco de dados conectado
+[2024-11-19 17:30:05] WARN  Cache não encontrado, criando novo
+[2024-11-19 17:30:06] INFO  100 requisições processadas
+[2024-11-19 17:30:07] INFO  200 requisições processadas
+[2024-11-19 17:30:08] INFO  300 requisições processadas
+[2024-11-19 17:30:09] ERROR Falha ao processar requisição ID:12345
+[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
+[2024-11-19 17:30:11] INFO  400 requisições processadas
+[2024-11-19 17:30:12] INFO  500 requisições processadas
+
+SEÇÃO 6: CARACTERES ESPECIAIS E UNICODE
+-----------------------------------------------------------------
+Símbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
+Acentuação: áéíóú àèìòù âêîôû ãõ äëïöü ç ñ
+Matemática: ∑ ∫ √ π ∞ ≠ ≤ ≥ ± × ÷
+Moedas: $ € £ ¥ ₹ ₽ ₩ ₪
+Setas: ← → ↑ ↓ ↔ ⇐ ⇒ ⇑ ⇓ ⇔
+
+SEÇÃO 7: SEQUÊNCIAS BINÁRIAS E HEXADECIMAIS
+-----------------------------------------------------------------
+Binary:  01010101 11001100 10101010 00110011
+Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
+Decimal: 12345 67890 11111 22222 33333 44444 55555
+
+SEÇÃO 8: POEMA (Estrutura e Ritmo)
+-----------------------------------------------------------------
+Nas asas do vento digital
+Viajam bits de luz ancestral
+Comprimidos em códigos binários
+Atravessam circuitos ordinários
+
+Huffman com seu algoritmo sábio
+Torna pequeno o que era vário
+E na árvore de sua criação
+Cada folha é informação
+
+SEÇÃO 9: REPETIÇÃO EXTREMA (Teste de Eficiência)
+-----------------------------------------------------------------
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+SEÇÃO 10: TABELA ASCII
+-----------------------------------------------------------------
+| Char | Dec | Hex | Bin      |
+|------|-----|-----|----------|
+| A    | 65  | 41  | 01000001 |
+| B    | 66  | 42  | 01000010 |
+| C    | 67  | 43  | 01000011 |
+| a    | 97  | 61  | 01100001 |
+| b    | 98  | 62  | 01100010 |
+| c    | 99  | 63  | 01100011 |
+| 0    | 48  | 30  | 00110000 |
+| 1    | 49  | 31  | 00110001 |
+| 2    | 50  | 32  | 00110010 |
+
+SEÇÃO 11: DADOS CSV
+-----------------------------------------------------------------
+Nome,Idade,Cidade,Profissão
+João Silva,25,São Paulo,Engenheiro
+Maria Santos,30,Rio de Janeiro,Médica
+Pedro Oliveira,35,Belo Horizonte,Professor
+Ana Costa,28,Porto Alegre,Designer
+Carlos Souza,32,Curitiba,Desenvolvedor
+Juliana Lima,27,Brasília,Advogada
+Roberto Alves,29,Fortaleza,Arquiteto
+
+SEÇÃO 12: COMANDOS LINUX (Alta Repetição)
+-----------------------------------------------------------------
+$ ls -la
+$ cd /home/usuario
+$ mkdir projetos
+$ cd projetos
+$ git clone https://github.com/usuario/repositorio.git
+$ cd repositorio
+$ npm install
+$ npm start
+$ git status
+$ git add .
+$ git commit -m "Update files"
+$ git push origin main
+
+SEÇÃO 13: FINALIZAÇÃO E ESTATÍSTICAS
+-----------------------------------------------------------------
+Este arquivo foi especialmente projetado para testar a compressão
+Huffman com diversos tipos de conteúdo:
+
+✓ Texto altamente repetitivo (Seção 1, 9)
+✓ Dados estruturados JSON (Seção 2)
+✓ Código-fonte com sintaxe (Seção 3)
+✓ Linguagem natural (Seção 4)
+✓ Logs com timestamps (Seção 5)
+✓ Unicode e caracteres especiais (Seção 6)
+✓ Dados binários e hexadecimais (Seção 7)
+✓ Poesia com estrutura (Seção 8)
+✓ Tabelas e CSV (Seção 10, 11)
+✓ Comandos de terminal (Seção 12)
+
+ESTATÍSTICAS ESPERADAS:
+- Tamanho aproximado: 6-8 KB
+- Taxa de compressão esperada: 45-60%
+- Bytes únicos: ~100-150 (de 256 possíveis)
+- Caracteres mais frequentes: espaço, 'a', 'e', 'o', '\n'
+
+=================================================================
+FIM DO ARQUIVO DE TESTE
+=================================================================
+=================================================================
+ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
+Sistema de Compressão - Algoritmo Guloso
+=================================================================
+
+SEÇÃO 1: TEXTO REPETITIVO (Alta Compressão Esperada)
+-----------------------------------------------------------------
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
+
+Este texto se repete muitas vezes para testar a eficiência da
+compressão em dados redundantes. A codificação de Huffman deve
+atribuir códigos mais curtos para os caracteres mais frequentes,
+resultando em uma taxa de compressão significativa.
+
+SEÇÃO 2: DADOS ESTRUTURADOS (JSON/XML-like)
+-----------------------------------------------------------------
+{
+  "sensor1": {
+    "temperatura": 25.3,
+    "umidade": 60,
+    "pressao": 1013,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor2": {
+    "temperatura": 26.1,
+    "umidade": 58,
+    "pressao": 1012,
+    "timestamp": "2024-11-19T17:45:00Z"
+  },
+  "sensor3": {
+    "temperatura": 24.8,
+    "umidade": 62,
+    "pressao": 1014,
+    "timestamp": "2024-11-19T17:45:00Z"
+  }
+}
+
+SEÇÃO 3: CÓDIGO-FONTE (Padrões em Sintaxe)
+-----------------------------------------------------------------
+public class ExemploCompressao {
+    private static final int CONSTANTE = 100;
+
+    public void metodoExemplo() {
+        for (int i = 0; i < CONSTANTE; i++) {
+            System.out.println("Iteração: " + i);
+            processarDados(i);
+        }
+    }
+
+    private void processarDados(int valor) {
+        if (valor % 2 == 0) {
+            System.out.println("Par: " + valor);
+        } else {
+            System.out.println("Ímpar: " + valor);
+        }
+    }
+}
+
+SEÇÃO 4: TEXTO NATURAL (Português)
+-----------------------------------------------------------------
+O algoritmo de Huffman é uma técnica de compressão sem perdas
+desenvolvida por David A. Huffman em 1952. Ele utiliza uma estratégia
+gulosa para construir uma árvore binária onde os caracteres mais
+frequentes recebem códigos binários mais curtos, enquanto caracteres
+menos frequentes recebem códigos mais longos.
+
+A compressão funciona particularmente bem em textos com alta
+redundância e padrões repetitivos. Por exemplo, em um texto em
+português, as letras 'a', 'e', 'o' aparecem com muito mais
+frequência que 'k', 'w', 'y'. O algoritmo explora essa propriedade
+estatística da linguagem para reduzir o tamanho total dos dados.
+
+SEÇÃO 5: DADOS NUMÉRICOS E LOGS
+-----------------------------------------------------------------
+[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
+[2024-11-19 17:30:02] DEBUG Carregando configurações...
+[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
+[2024-11-19 17:30:04] INFO  Banco de dados conectado
+[2024-11-19 17:30:05] WARN  Cache não encontrado, criando novo
+[2024-11-19 17:30:06] INFO  100 requisições processadas
+[2024-11-19 17:30:07] INFO  200 requisições processadas
+[2024-11-19 17:30:08] INFO  300 requisições processadas
+[2024-11-19 17:30:09] ERROR Falha ao processar requisição ID:12345
+[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
+[2024-11-19 17:30:11] INFO  400 requisições processadas
+[2024-11-19 17:30:12] INFO  500 requisições processadas
+
+SEÇÃO 6: CARACTERES ESPECIAIS E UNICODE
+-----------------------------------------------------------------
+Símbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
+Acentuação: áéíóú àèìòù âêîôû ãõ äëïöü ç ñ
+Matemática: ∑ ∫ √ π ∞ ≠ ≤ ≥ ± × ÷
+Moedas: $ € £ ¥ ₹ ₽ ₩ ₪
+Setas: ← → ↑ ↓ ↔ ⇐ ⇒ ⇑ ⇓ ⇔
+
+SEÇÃO 7: SEQUÊNCIAS BINÁRIAS E HEXADECIMAIS
+-----------------------------------------------------------------
+Binary:  01010101 11001100 10101010 00110011
+Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
+Decimal: 12345 67890 11111 22222 33333 44444 55555
+
+SEÇÃO 8: POEMA (Estrutura e Ritmo)
+-----------------------------------------------------------------
+Nas asas do vento digital
+Viajam bits de luz ancestral
+Comprimidos em códigos binários
+Atravessam circuitos ordinários
+
+Huffman com seu algoritmo sábio
+Torna pequeno o que era vário
+E na árvore de sua criação
+Cada folha é informação
+
+SEÇÃO 9: REPETIÇÃO EXTREMA (Teste de Eficiência)
+-----------------------------------------------------------------
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+SEÇÃO 10: TABELA ASCII
+-----------------------------------------------------------------
+| Char | Dec | Hex | Bin      |
+|------|-----|-----|----------|
+| A    | 65  | 41  | 01000001 |
+| B    | 66  | 42  | 01000010 |
+| C    | 67  | 43  | 01000011 |
+| a    | 97  | 61  | 01100001 |
+| b    | 98  | 62  | 01100010 |
+| c    | 99  | 63  | 01100011 |
+| 0    | 48  | 30  | 00110000 |
+| 1    | 49  | 31  | 00110001 |
+| 2    | 50  | 32  | 00110010 |
+
+SEÇÃO 11: DADOS CSV
+-----------------------------------------------------------------
+Nome,Idade,Cidade,Profissão
+João Silva,25,São Paulo,Engenheiro
+Maria Santos,30,Rio de Janeiro,Médica
+Pedro Oliveira,35,Belo Horizonte,Professor
+Ana Costa,28,Porto Alegre,Designer
+Carlos Souza,32,Curitiba,Desenvolvedor
+Juliana Lima,27,Brasília,Advogada
+Roberto Alves,29,Fortaleza,Arquiteto
+
+SEÇÃO 12: COMANDOS LINUX (Alta Repetição)
+-----------------------------------------------------------------
+$ ls -la
+$ cd /home/usuario
+$ mkdir projetos
+$ cd projetos
+$ git clone https://github.com/usuario/repositorio.git
+$ cd repositorio
+$ npm install
+$ npm start
+$ git status
+$ git add .
+$ git commit -m "Update files"
+$ git push origin main
+
+SEÇÃO 13: FINALIZAÇÃO E ESTATÍSTICAS
+-----------------------------------------------------------------
+Este arquivo foi especialmente projetado para testar a compressão
+Huffman com diversos tipos de conteúdo:
+
+✓ Texto altamente repetitivo (Seção 1, 9)
+✓ Dados estruturados JSON (Seção 2)
+✓ Código-fonte com sintaxe (Seção 3)
+✓ Linguagem natural (Seção 4)
+✓ Logs com timestamps (Seção 5)
+✓ Unicode e caracteres especiais (Seção 6)
+✓ Dados binários e hexadecimais (Seção 7)
+✓ Poesia com estrutura (Seção 8)
+✓ Tabelas e CSV (Seção 10, 11)
+✓ Comandos de terminal (Seção 12)
+
+ESTATÍSTICAS ESPERADAS:
+- Tamanho aproximado: 6-8 KB
+- Taxa de compressão esperada: 45-60%
+- Bytes únicos: ~100-150 (de 256 possíveis)
+- Caracteres mais frequentes: espaço, 'a', 'e', 'o', '\n'
+
+=================================================================
+FIM DO ARQUIVO DE TESTE
+=================================================================
