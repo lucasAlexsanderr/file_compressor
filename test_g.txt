@@ -1,1005 +1,1175 @@
-=================================================================
-ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
-Sistema de Compress√£o - Algoritmo Guloso
-=================================================================
-
-SE√á√ÉO 1: TEXTO REPETITIVO (Alta Compress√£o Esperada)
------------------------------------------------------------------
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-
-Este texto se repete muitas vezes para testar a efici√™ncia da
-compress√£o em dados redundantes. A codifica√ß√£o de Huffman deve
-atribuir c√≥digos mais curtos para os caracteres mais frequentes,
-resultando em uma taxa de compress√£o significativa.
-
-SE√á√ÉO 2: DADOS ESTRUTURADOS (JSON/XML-like)
------------------------------------------------------------------
-{
-  "sensor1": {
-    "temperatura": 25.3,
-    "umidade": 60,
-    "pressao": 1013,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor2": {
-    "temperatura": 26.1,
-    "umidade": 58,
-    "pressao": 1012,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor3": {
-    "temperatura": 24.8,
-    "umidade": 62,
-    "pressao": 1014,
-    "timestamp": "2024-11-19T17:45:00Z"
-  }
-}
-
-SE√á√ÉO 3: C√ìDIGO-FONTE (Padr√µes em Sintaxe)
------------------------------------------------------------------
-public class ExemploCompressao {
-    private static final int CONSTANTE = 100;
-
-    public void metodoExemplo() {
-        for (int i = 0; i < CONSTANTE; i++) {
-            System.out.println("Itera√ß√£o: " + i);
-            processarDados(i);
-        }
-    }
-
-    private void processarDados(int valor) {
-        if (valor % 2 == 0) {
-            System.out.println("Par: " + valor);
-        } else {
-            System.out.println("√çmpar: " + valor);
-        }
-    }
-}
-
-SE√á√ÉO 4: TEXTO NATURAL (Portugu√™s)
------------------------------------------------------------------
-O algoritmo de Huffman √© uma t√©cnica de compress√£o sem perdas
-desenvolvida por David A. Huffman em 1952. Ele utiliza uma estrat√©gia
-gulosa para construir uma √°rvore bin√°ria onde os caracteres mais
-frequentes recebem c√≥digos bin√°rios mais curtos, enquanto caracteres
-menos frequentes recebem c√≥digos mais longos.
-
-A compress√£o funciona particularmente bem em textos com alta
-redund√¢ncia e padr√µes repetitivos. Por exemplo, em um texto em
-portugu√™s, as letras 'a', 'e', 'o' aparecem com muito mais
-frequ√™ncia que 'k', 'w', 'y'. O algoritmo explora essa propriedade
-estat√≠stica da linguagem para reduzir o tamanho total dos dados.
-
-SE√á√ÉO 5: DADOS NUM√âRICOS E LOGS
------------------------------------------------------------------
-[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
-[2024-11-19 17:30:02] DEBUG Carregando configura√ß√µes...
-[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
-[2024-11-19 17:30:04] INFO  Banco de dados conectado
-[2024-11-19 17:30:05] WARN  Cache n√£o encontrado, criando novo
-[2024-11-19 17:30:06] INFO  100 requisi√ß√µes processadas
-[2024-11-19 17:30:07] INFO  200 requisi√ß√µes processadas
-[2024-11-19 17:30:08] INFO  300 requisi√ß√µes processadas
-[2024-11-19 17:30:09] ERROR Falha ao processar requisi√ß√£o ID:12345
-[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
-[2024-11-19 17:30:11] INFO  400 requisi√ß√µes processadas
-[2024-11-19 17:30:12] INFO  500 requisi√ß√µes processadas
-
-SE√á√ÉO 6: CARACTERES ESPECIAIS E UNICODE
------------------------------------------------------------------
-S√≠mbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
-Acentua√ß√£o: √°√©√≠√≥√∫ √†√®√¨√≤√π √¢√™√Æ√¥√ª √£√µ √§√´√Ø√∂√º √ß √±
-Matem√°tica: ‚àë ‚à´ ‚àö œÄ ‚àû ‚â† ‚â§ ‚â• ¬± √ó √∑
-Moedas: $ ‚Ç¨ ¬£ ¬• ‚Çπ ‚ÇΩ ‚Ç© ‚Ç™
-Setas: ‚Üê ‚Üí ‚Üë ‚Üì ‚Üî ‚áê ‚áí ‚áë ‚áì ‚áî
-
-SE√á√ÉO 7: SEQU√äNCIAS BIN√ÅRIAS E HEXADECIMAIS
------------------------------------------------------------------
-Binary:  01010101 11001100 10101010 00110011
-Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
-Decimal: 12345 67890 11111 22222 33333 44444 55555
-
-SE√á√ÉO 8: POEMA (Estrutura e Ritmo)
------------------------------------------------------------------
-Nas asas do vento digital
-Viajam bits de luz ancestral
-Comprimidos em c√≥digos bin√°rios
-Atravessam circuitos ordin√°rios
-
-Huffman com seu algoritmo s√°bio
-Torna pequeno o que era v√°rio
-E na √°rvore de sua cria√ß√£o
-Cada folha √© informa√ß√£o
-
-SE√á√ÉO 9: REPETI√á√ÉO EXTREMA (Teste de Efici√™ncia)
------------------------------------------------------------------
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-
-SE√á√ÉO 10: TABELA ASCII
------------------------------------------------------------------
-| Char | Dec | Hex | Bin      |
-|------|-----|-----|----------|
-| A    | 65  | 41  | 01000001 |
-| B    | 66  | 42  | 01000010 |
-| C    | 67  | 43  | 01000011 |
-| a    | 97  | 61  | 01100001 |
-| b    | 98  | 62  | 01100010 |
-| c    | 99  | 63  | 01100011 |
-| 0    | 48  | 30  | 00110000 |
-| 1    | 49  | 31  | 00110001 |
-| 2    | 50  | 32  | 00110010 |
-
-SE√á√ÉO 11: DADOS CSV
------------------------------------------------------------------
-Nome,Idade,Cidade,Profiss√£o
-Jo√£o Silva,25,S√£o Paulo,Engenheiro
-Maria Santos,30,Rio de Janeiro,M√©dica
-Pedro Oliveira,35,Belo Horizonte,Professor
-Ana Costa,28,Porto Alegre,Designer
-Carlos Souza,32,Curitiba,Desenvolvedor
-Juliana Lima,27,Bras√≠lia,Advogada
-Roberto Alves,29,Fortaleza,Arquiteto
-
-SE√á√ÉO 12: COMANDOS LINUX (Alta Repeti√ß√£o)
------------------------------------------------------------------
-$ ls -la
-$ cd /home/usuario
-$ mkdir projetos
-$ cd projetos
-$ git clone https://github.com/usuario/repositorio.git
-$ cd repositorio
-$ npm install
-$ npm start
-$ git status
-$ git add .
-$ git commit -m "Update files"
-$ git push origin main
-
-SE√á√ÉO 13: FINALIZA√á√ÉO E ESTAT√çSTICAS
------------------------------------------------------------------
-Este arquivo foi especialmente projetado para testar a compress√£o
-Huffman com diversos tipos de conte√∫do:
-
-‚úì Texto altamente repetitivo (Se√ß√£o 1, 9)
-‚úì Dados estruturados JSON (Se√ß√£o 2)
-‚úì C√≥digo-fonte com sintaxe (Se√ß√£o 3)
-‚úì Linguagem natural (Se√ß√£o 4)
-‚úì Logs com timestamps (Se√ß√£o 5)
-‚úì Unicode e caracteres especiais (Se√ß√£o 6)
-‚úì Dados bin√°rios e hexadecimais (Se√ß√£o 7)
-‚úì Poesia com estrutura (Se√ß√£o 8)
-‚úì Tabelas e CSV (Se√ß√£o 10, 11)
-‚úì Comandos de terminal (Se√ß√£o 12)
-
-ESTAT√çSTICAS ESPERADAS:
-- Tamanho aproximado: 6-8 KB
-- Taxa de compress√£o esperada: 45-60%
-- Bytes √∫nicos: ~100-150 (de 256 poss√≠veis)
-- Caracteres mais frequentes: espa√ßo, 'a', 'e', 'o', '\n'
-
-=================================================================
-FIM DO ARQUIVO DE TESTE
-=================================================================
-=================================================================
-ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
-Sistema de Compress√£o - Algoritmo Guloso
-=================================================================
-
-SE√á√ÉO 1: TEXTO REPETITIVO (Alta Compress√£o Esperada)
------------------------------------------------------------------
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-
-Este texto se repete muitas vezes para testar a efici√™ncia da
-compress√£o em dados redundantes. A codifica√ß√£o de Huffman deve
-atribuir c√≥digos mais curtos para os caracteres mais frequentes,
-resultando em uma taxa de compress√£o significativa.
-
-SE√á√ÉO 2: DADOS ESTRUTURADOS (JSON/XML-like)
------------------------------------------------------------------
-{
-  "sensor1": {
-    "temperatura": 25.3,
-    "umidade": 60,
-    "pressao": 1013,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor2": {
-    "temperatura": 26.1,
-    "umidade": 58,
-    "pressao": 1012,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor3": {
-    "temperatura": 24.8,
-    "umidade": 62,
-    "pressao": 1014,
-    "timestamp": "2024-11-19T17:45:00Z"
-  }
-}
-
-SE√á√ÉO 3: C√ìDIGO-FONTE (Padr√µes em Sintaxe)
------------------------------------------------------------------
-public class ExemploCompressao {
-    private static final int CONSTANTE = 100;
-
-    public void metodoExemplo() {
-        for (int i = 0; i < CONSTANTE; i++) {
-            System.out.println("Itera√ß√£o: " + i);
-            processarDados(i);
-        }
-    }
-
-    private void processarDados(int valor) {
-        if (valor % 2 == 0) {
-            System.out.println("Par: " + valor);
-        } else {
-            System.out.println("√çmpar: " + valor);
-        }
-    }
-}
-
-SE√á√ÉO 4: TEXTO NATURAL (Portugu√™s)
------------------------------------------------------------------
-O algoritmo de Huffman √© uma t√©cnica de compress√£o sem perdas
-desenvolvida por David A. Huffman em 1952. Ele utiliza uma estrat√©gia
-gulosa para construir uma √°rvore bin√°ria onde os caracteres mais
-frequentes recebem c√≥digos bin√°rios mais curtos, enquanto caracteres
-menos frequentes recebem c√≥digos mais longos.
-
-A compress√£o funciona particularmente bem em textos com alta
-redund√¢ncia e padr√µes repetitivos. Por exemplo, em um texto em
-portugu√™s, as letras 'a', 'e', 'o' aparecem com muito mais
-frequ√™ncia que 'k', 'w', 'y'. O algoritmo explora essa propriedade
-estat√≠stica da linguagem para reduzir o tamanho total dos dados.
-
-SE√á√ÉO 5: DADOS NUM√âRICOS E LOGS
------------------------------------------------------------------
-[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
-[2024-11-19 17:30:02] DEBUG Carregando configura√ß√µes...
-[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
-[2024-11-19 17:30:04] INFO  Banco de dados conectado
-[2024-11-19 17:30:05] WARN  Cache n√£o encontrado, criando novo
-[2024-11-19 17:30:06] INFO  100 requisi√ß√µes processadas
-[2024-11-19 17:30:07] INFO  200 requisi√ß√µes processadas
-[2024-11-19 17:30:08] INFO  300 requisi√ß√µes processadas
-[2024-11-19 17:30:09] ERROR Falha ao processar requisi√ß√£o ID:12345
-[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
-[2024-11-19 17:30:11] INFO  400 requisi√ß√µes processadas
-[2024-11-19 17:30:12] INFO  500 requisi√ß√µes processadas
-
-SE√á√ÉO 6: CARACTERES ESPECIAIS E UNICODE
------------------------------------------------------------------
-S√≠mbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
-Acentua√ß√£o: √°√©√≠√≥√∫ √†√®√¨√≤√π √¢√™√Æ√¥√ª √£√µ √§√´√Ø√∂√º √ß √±
-Matem√°tica: ‚àë ‚à´ ‚àö œÄ ‚àû ‚â† ‚â§ ‚â• ¬± √ó √∑
-Moedas: $ ‚Ç¨ ¬£ ¬• ‚Çπ ‚ÇΩ ‚Ç© ‚Ç™
-Setas: ‚Üê ‚Üí ‚Üë ‚Üì ‚Üî ‚áê ‚áí ‚áë ‚áì ‚áî
-
-SE√á√ÉO 7: SEQU√äNCIAS BIN√ÅRIAS E HEXADECIMAIS
------------------------------------------------------------------
-Binary:  01010101 11001100 10101010 00110011
-Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
-Decimal: 12345 67890 11111 22222 33333 44444 55555
-
-SE√á√ÉO 8: POEMA (Estrutura e Ritmo)
------------------------------------------------------------------
-Nas asas do vento digital
-Viajam bits de luz ancestral
-Comprimidos em c√≥digos bin√°rios
-Atravessam circuitos ordin√°rios
-
-Huffman com seu algoritmo s√°bio
-Torna pequeno o que era v√°rio
-E na √°rvore de sua cria√ß√£o
-Cada folha √© informa√ß√£o
-
-SE√á√ÉO 9: REPETI√á√ÉO EXTREMA (Teste de Efici√™ncia)
------------------------------------------------------------------
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-
-SE√á√ÉO 10: TABELA ASCII
------------------------------------------------------------------
-| Char | Dec | Hex | Bin      |
-|------|-----|-----|----------|
-| A    | 65  | 41  | 01000001 |
-| B    | 66  | 42  | 01000010 |
-| C    | 67  | 43  | 01000011 |
-| a    | 97  | 61  | 01100001 |
-| b    | 98  | 62  | 01100010 |
-| c    | 99  | 63  | 01100011 |
-| 0    | 48  | 30  | 00110000 |
-| 1    | 49  | 31  | 00110001 |
-| 2    | 50  | 32  | 00110010 |
-
-SE√á√ÉO 11: DADOS CSV
------------------------------------------------------------------
-Nome,Idade,Cidade,Profiss√£o
-Jo√£o Silva,25,S√£o Paulo,Engenheiro
-Maria Santos,30,Rio de Janeiro,M√©dica
-Pedro Oliveira,35,Belo Horizonte,Professor
-Ana Costa,28,Porto Alegre,Designer
-Carlos Souza,32,Curitiba,Desenvolvedor
-Juliana Lima,27,Bras√≠lia,Advogada
-Roberto Alves,29,Fortaleza,Arquiteto
-
-SE√á√ÉO 12: COMANDOS LINUX (Alta Repeti√ß√£o)
------------------------------------------------------------------
-$ ls -la
-$ cd /home/usuario
-$ mkdir projetos
-$ cd projetos
-$ git clone https://github.com/usuario/repositorio.git
-$ cd repositorio
-$ npm install
-$ npm start
-$ git status
-$ git add .
-$ git commit -m "Update files"
-$ git push origin main
-
-SE√á√ÉO 13: FINALIZA√á√ÉO E ESTAT√çSTICAS
------------------------------------------------------------------
-Este arquivo foi especialmente projetado para testar a compress√£o
-Huffman com diversos tipos de conte√∫do:
-
-‚úì Texto altamente repetitivo (Se√ß√£o 1, 9)
-‚úì Dados estruturados JSON (Se√ß√£o 2)
-‚úì C√≥digo-fonte com sintaxe (Se√ß√£o 3)
-‚úì Linguagem natural (Se√ß√£o 4)
-‚úì Logs com timestamps (Se√ß√£o 5)
-‚úì Unicode e caracteres especiais (Se√ß√£o 6)
-‚úì Dados bin√°rios e hexadecimais (Se√ß√£o 7)
-‚úì Poesia com estrutura (Se√ß√£o 8)
-‚úì Tabelas e CSV (Se√ß√£o 10, 11)
-‚úì Comandos de terminal (Se√ß√£o 12)
-
-ESTAT√çSTICAS ESPERADAS:
-- Tamanho aproximado: 6-8 KB
-- Taxa de compress√£o esperada: 45-60%
-- Bytes √∫nicos: ~100-150 (de 256 poss√≠veis)
-- Caracteres mais frequentes: espa√ßo, 'a', 'e', 'o', '\n'
-
-=================================================================
-FIM DO ARQUIVO DE TESTE
-=================================================================
-=================================================================
-ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
-Sistema de Compress√£o - Algoritmo Guloso
-=================================================================
-
-SE√á√ÉO 1: TEXTO REPETITIVO (Alta Compress√£o Esperada)
------------------------------------------------------------------
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-
-Este texto se repete muitas vezes para testar a efici√™ncia da
-compress√£o em dados redundantes. A codifica√ß√£o de Huffman deve
-atribuir c√≥digos mais curtos para os caracteres mais frequentes,
-resultando em uma taxa de compress√£o significativa.
-
-SE√á√ÉO 2: DADOS ESTRUTURADOS (JSON/XML-like)
------------------------------------------------------------------
-{
-  "sensor1": {
-    "temperatura": 25.3,
-    "umidade": 60,
-    "pressao": 1013,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor2": {
-    "temperatura": 26.1,
-    "umidade": 58,
-    "pressao": 1012,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor3": {
-    "temperatura": 24.8,
-    "umidade": 62,
-    "pressao": 1014,
-    "timestamp": "2024-11-19T17:45:00Z"
-  }
-}
-
-SE√á√ÉO 3: C√ìDIGO-FONTE (Padr√µes em Sintaxe)
------------------------------------------------------------------
-public class ExemploCompressao {
-    private static final int CONSTANTE = 100;
-
-    public void metodoExemplo() {
-        for (int i = 0; i < CONSTANTE; i++) {
-            System.out.println("Itera√ß√£o: " + i);
-            processarDados(i);
-        }
-    }
-
-    private void processarDados(int valor) {
-        if (valor % 2 == 0) {
-            System.out.println("Par: " + valor);
-        } else {
-            System.out.println("√çmpar: " + valor);
-        }
-    }
-}
-
-SE√á√ÉO 4: TEXTO NATURAL (Portugu√™s)
------------------------------------------------------------------
-O algoritmo de Huffman √© uma t√©cnica de compress√£o sem perdas
-desenvolvida por David A. Huffman em 1952. Ele utiliza uma estrat√©gia
-gulosa para construir uma √°rvore bin√°ria onde os caracteres mais
-frequentes recebem c√≥digos bin√°rios mais curtos, enquanto caracteres
-menos frequentes recebem c√≥digos mais longos.
-
-A compress√£o funciona particularmente bem em textos com alta
-redund√¢ncia e padr√µes repetitivos. Por exemplo, em um texto em
-portugu√™s, as letras 'a', 'e', 'o' aparecem com muito mais
-frequ√™ncia que 'k', 'w', 'y'. O algoritmo explora essa propriedade
-estat√≠stica da linguagem para reduzir o tamanho total dos dados.
-
-SE√á√ÉO 5: DADOS NUM√âRICOS E LOGS
------------------------------------------------------------------
-[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
-[2024-11-19 17:30:02] DEBUG Carregando configura√ß√µes...
-[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
-[2024-11-19 17:30:04] INFO  Banco de dados conectado
-[2024-11-19 17:30:05] WARN  Cache n√£o encontrado, criando novo
-[2024-11-19 17:30:06] INFO  100 requisi√ß√µes processadas
-[2024-11-19 17:30:07] INFO  200 requisi√ß√µes processadas
-[2024-11-19 17:30:08] INFO  300 requisi√ß√µes processadas
-[2024-11-19 17:30:09] ERROR Falha ao processar requisi√ß√£o ID:12345
-[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
-[2024-11-19 17:30:11] INFO  400 requisi√ß√µes processadas
-[2024-11-19 17:30:12] INFO  500 requisi√ß√µes processadas
-
-SE√á√ÉO 6: CARACTERES ESPECIAIS E UNICODE
------------------------------------------------------------------
-S√≠mbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
-Acentua√ß√£o: √°√©√≠√≥√∫ √†√®√¨√≤√π √¢√™√Æ√¥√ª √£√µ √§√´√Ø√∂√º √ß √±
-Matem√°tica: ‚àë ‚à´ ‚àö œÄ ‚àû ‚â† ‚â§ ‚â• ¬± √ó √∑
-Moedas: $ ‚Ç¨ ¬£ ¬• ‚Çπ ‚ÇΩ ‚Ç© ‚Ç™
-Setas: ‚Üê ‚Üí ‚Üë ‚Üì ‚Üî ‚áê ‚áí ‚áë ‚áì ‚áî
-
-SE√á√ÉO 7: SEQU√äNCIAS BIN√ÅRIAS E HEXADECIMAIS
------------------------------------------------------------------
-Binary:  01010101 11001100 10101010 00110011
-Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
-Decimal: 12345 67890 11111 22222 33333 44444 55555
-
-SE√á√ÉO 8: POEMA (Estrutura e Ritmo)
------------------------------------------------------------------
-Nas asas do vento digital
-Viajam bits de luz ancestral
-Comprimidos em c√≥digos bin√°rios
-Atravessam circuitos ordin√°rios
-
-Huffman com seu algoritmo s√°bio
-Torna pequeno o que era v√°rio
-E na √°rvore de sua cria√ß√£o
-Cada folha √© informa√ß√£o
-
-SE√á√ÉO 9: REPETI√á√ÉO EXTREMA (Teste de Efici√™ncia)
------------------------------------------------------------------
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-
-SE√á√ÉO 10: TABELA ASCII
------------------------------------------------------------------
-| Char | Dec | Hex | Bin      |
-|------|-----|-----|----------|
-| A    | 65  | 41  | 01000001 |
-| B    | 66  | 42  | 01000010 |
-| C    | 67  | 43  | 01000011 |
-| a    | 97  | 61  | 01100001 |
-| b    | 98  | 62  | 01100010 |
-| c    | 99  | 63  | 01100011 |
-| 0    | 48  | 30  | 00110000 |
-| 1    | 49  | 31  | 00110001 |
-| 2    | 50  | 32  | 00110010 |
-
-SE√á√ÉO 11: DADOS CSV
------------------------------------------------------------------
-Nome,Idade,Cidade,Profiss√£o
-Jo√£o Silva,25,S√£o Paulo,Engenheiro
-Maria Santos,30,Rio de Janeiro,M√©dica
-Pedro Oliveira,35,Belo Horizonte,Professor
-Ana Costa,28,Porto Alegre,Designer
-Carlos Souza,32,Curitiba,Desenvolvedor
-Juliana Lima,27,Bras√≠lia,Advogada
-Roberto Alves,29,Fortaleza,Arquiteto
-
-SE√á√ÉO 12: COMANDOS LINUX (Alta Repeti√ß√£o)
------------------------------------------------------------------
-$ ls -la
-$ cd /home/usuario
-$ mkdir projetos
-$ cd projetos
-$ git clone https://github.com/usuario/repositorio.git
-$ cd repositorio
-$ npm install
-$ npm start
-$ git status
-$ git add .
-$ git commit -m "Update files"
-$ git push origin main
-
-SE√á√ÉO 13: FINALIZA√á√ÉO E ESTAT√çSTICAS
------------------------------------------------------------------
-Este arquivo foi especialmente projetado para testar a compress√£o
-Huffman com diversos tipos de conte√∫do:
-
-‚úì Texto altamente repetitivo (Se√ß√£o 1, 9)
-‚úì Dados estruturados JSON (Se√ß√£o 2)
-‚úì C√≥digo-fonte com sintaxe (Se√ß√£o 3)
-‚úì Linguagem natural (Se√ß√£o 4)
-‚úì Logs com timestamps (Se√ß√£o 5)
-‚úì Unicode e caracteres especiais (Se√ß√£o 6)
-‚úì Dados bin√°rios e hexadecimais (Se√ß√£o 7)
-‚úì Poesia com estrutura (Se√ß√£o 8)
-‚úì Tabelas e CSV (Se√ß√£o 10, 11)
-‚úì Comandos de terminal (Se√ß√£o 12)
-
-ESTAT√çSTICAS ESPERADAS:
-- Tamanho aproximado: 6-8 KB
-- Taxa de compress√£o esperada: 45-60%
-- Bytes √∫nicos: ~100-150 (de 256 poss√≠veis)
-- Caracteres mais frequentes: espa√ßo, 'a', 'e', 'o', '\n'
-
-=================================================================
-FIM DO ARQUIVO DE TESTE
-=================================================================
-=================================================================
-ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
-Sistema de Compress√£o - Algoritmo Guloso
-=================================================================
-
-SE√á√ÉO 1: TEXTO REPETITIVO (Alta Compress√£o Esperada)
------------------------------------------------------------------
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-
-Este texto se repete muitas vezes para testar a efici√™ncia da
-compress√£o em dados redundantes. A codifica√ß√£o de Huffman deve
-atribuir c√≥digos mais curtos para os caracteres mais frequentes,
-resultando em uma taxa de compress√£o significativa.
-
-SE√á√ÉO 2: DADOS ESTRUTURADOS (JSON/XML-like)
------------------------------------------------------------------
-{
-  "sensor1": {
-    "temperatura": 25.3,
-    "umidade": 60,
-    "pressao": 1013,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor2": {
-    "temperatura": 26.1,
-    "umidade": 58,
-    "pressao": 1012,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor3": {
-    "temperatura": 24.8,
-    "umidade": 62,
-    "pressao": 1014,
-    "timestamp": "2024-11-19T17:45:00Z"
-  }
-}
-
-SE√á√ÉO 3: C√ìDIGO-FONTE (Padr√µes em Sintaxe)
------------------------------------------------------------------
-public class ExemploCompressao {
-    private static final int CONSTANTE = 100;
-
-    public void metodoExemplo() {
-        for (int i = 0; i < CONSTANTE; i++) {
-            System.out.println("Itera√ß√£o: " + i);
-            processarDados(i);
-        }
-    }
-
-    private void processarDados(int valor) {
-        if (valor % 2 == 0) {
-            System.out.println("Par: " + valor);
-        } else {
-            System.out.println("√çmpar: " + valor);
-        }
-    }
-}
-
-SE√á√ÉO 4: TEXTO NATURAL (Portugu√™s)
------------------------------------------------------------------
-O algoritmo de Huffman √© uma t√©cnica de compress√£o sem perdas
-desenvolvida por David A. Huffman em 1952. Ele utiliza uma estrat√©gia
-gulosa para construir uma √°rvore bin√°ria onde os caracteres mais
-frequentes recebem c√≥digos bin√°rios mais curtos, enquanto caracteres
-menos frequentes recebem c√≥digos mais longos.
-
-A compress√£o funciona particularmente bem em textos com alta
-redund√¢ncia e padr√µes repetitivos. Por exemplo, em um texto em
-portugu√™s, as letras 'a', 'e', 'o' aparecem com muito mais
-frequ√™ncia que 'k', 'w', 'y'. O algoritmo explora essa propriedade
-estat√≠stica da linguagem para reduzir o tamanho total dos dados.
-
-SE√á√ÉO 5: DADOS NUM√âRICOS E LOGS
------------------------------------------------------------------
-[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
-[2024-11-19 17:30:02] DEBUG Carregando configura√ß√µes...
-[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
-[2024-11-19 17:30:04] INFO  Banco de dados conectado
-[2024-11-19 17:30:05] WARN  Cache n√£o encontrado, criando novo
-[2024-11-19 17:30:06] INFO  100 requisi√ß√µes processadas
-[2024-11-19 17:30:07] INFO  200 requisi√ß√µes processadas
-[2024-11-19 17:30:08] INFO  300 requisi√ß√µes processadas
-[2024-11-19 17:30:09] ERROR Falha ao processar requisi√ß√£o ID:12345
-[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
-[2024-11-19 17:30:11] INFO  400 requisi√ß√µes processadas
-[2024-11-19 17:30:12] INFO  500 requisi√ß√µes processadas
-
-SE√á√ÉO 6: CARACTERES ESPECIAIS E UNICODE
------------------------------------------------------------------
-S√≠mbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
-Acentua√ß√£o: √°√©√≠√≥√∫ √†√®√¨√≤√π √¢√™√Æ√¥√ª √£√µ √§√´√Ø√∂√º √ß √±
-Matem√°tica: ‚àë ‚à´ ‚àö œÄ ‚àû ‚â† ‚â§ ‚â• ¬± √ó √∑
-Moedas: $ ‚Ç¨ ¬£ ¬• ‚Çπ ‚ÇΩ ‚Ç© ‚Ç™
-Setas: ‚Üê ‚Üí ‚Üë ‚Üì ‚Üî ‚áê ‚áí ‚áë ‚áì ‚áî
-
-SE√á√ÉO 7: SEQU√äNCIAS BIN√ÅRIAS E HEXADECIMAIS
------------------------------------------------------------------
-Binary:  01010101 11001100 10101010 00110011
-Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
-Decimal: 12345 67890 11111 22222 33333 44444 55555
-
-SE√á√ÉO 8: POEMA (Estrutura e Ritmo)
------------------------------------------------------------------
-Nas asas do vento digital
-Viajam bits de luz ancestral
-Comprimidos em c√≥digos bin√°rios
-Atravessam circuitos ordin√°rios
-
-Huffman com seu algoritmo s√°bio
-Torna pequeno o que era v√°rio
-E na √°rvore de sua cria√ß√£o
-Cada folha √© informa√ß√£o
-
-SE√á√ÉO 9: REPETI√á√ÉO EXTREMA (Teste de Efici√™ncia)
------------------------------------------------------------------
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-
-SE√á√ÉO 10: TABELA ASCII
------------------------------------------------------------------
-| Char | Dec | Hex | Bin      |
-|------|-----|-----|----------|
-| A    | 65  | 41  | 01000001 |
-| B    | 66  | 42  | 01000010 |
-| C    | 67  | 43  | 01000011 |
-| a    | 97  | 61  | 01100001 |
-| b    | 98  | 62  | 01100010 |
-| c    | 99  | 63  | 01100011 |
-| 0    | 48  | 30  | 00110000 |
-| 1    | 49  | 31  | 00110001 |
-| 2    | 50  | 32  | 00110010 |
-
-SE√á√ÉO 11: DADOS CSV
------------------------------------------------------------------
-Nome,Idade,Cidade,Profiss√£o
-Jo√£o Silva,25,S√£o Paulo,Engenheiro
-Maria Santos,30,Rio de Janeiro,M√©dica
-Pedro Oliveira,35,Belo Horizonte,Professor
-Ana Costa,28,Porto Alegre,Designer
-Carlos Souza,32,Curitiba,Desenvolvedor
-Juliana Lima,27,Bras√≠lia,Advogada
-Roberto Alves,29,Fortaleza,Arquiteto
-
-SE√á√ÉO 12: COMANDOS LINUX (Alta Repeti√ß√£o)
------------------------------------------------------------------
-$ ls -la
-$ cd /home/usuario
-$ mkdir projetos
-$ cd projetos
-$ git clone https://github.com/usuario/repositorio.git
-$ cd repositorio
-$ npm install
-$ npm start
-$ git status
-$ git add .
-$ git commit -m "Update files"
-$ git push origin main
-
-SE√á√ÉO 13: FINALIZA√á√ÉO E ESTAT√çSTICAS
------------------------------------------------------------------
-Este arquivo foi especialmente projetado para testar a compress√£o
-Huffman com diversos tipos de conte√∫do:
-
-‚úì Texto altamente repetitivo (Se√ß√£o 1, 9)
-‚úì Dados estruturados JSON (Se√ß√£o 2)
-‚úì C√≥digo-fonte com sintaxe (Se√ß√£o 3)
-‚úì Linguagem natural (Se√ß√£o 4)
-‚úì Logs com timestamps (Se√ß√£o 5)
-‚úì Unicode e caracteres especiais (Se√ß√£o 6)
-‚úì Dados bin√°rios e hexadecimais (Se√ß√£o 7)
-‚úì Poesia com estrutura (Se√ß√£o 8)
-‚úì Tabelas e CSV (Se√ß√£o 10, 11)
-‚úì Comandos de terminal (Se√ß√£o 12)
-
-ESTAT√çSTICAS ESPERADAS:
-- Tamanho aproximado: 6-8 KB
-- Taxa de compress√£o esperada: 45-60%
-- Bytes √∫nicos: ~100-150 (de 256 poss√≠veis)
-- Caracteres mais frequentes: espa√ßo, 'a', 'e', 'o', '\n'
-
-=================================================================
-FIM DO ARQUIVO DE TESTE
-=================================================================
-=================================================================
-ARQUIVO DE TESTE PARA COMPRESSOR HUFFMAN
-Sistema de Compress√£o - Algoritmo Guloso
-=================================================================
-
-SE√á√ÉO 1: TEXTO REPETITIVO (Alta Compress√£o Esperada)
------------------------------------------------------------------
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-AAAAAAAAAA BBBBBBBBBB CCCCCCCCCC DDDDDDDDDD EEEEEEEEEE
-
-Este texto se repete muitas vezes para testar a efici√™ncia da
-compress√£o em dados redundantes. A codifica√ß√£o de Huffman deve
-atribuir c√≥digos mais curtos para os caracteres mais frequentes,
-resultando em uma taxa de compress√£o significativa.
-
-SE√á√ÉO 2: DADOS ESTRUTURADOS (JSON/XML-like)
------------------------------------------------------------------
-{
-  "sensor1": {
-    "temperatura": 25.3,
-    "umidade": 60,
-    "pressao": 1013,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor2": {
-    "temperatura": 26.1,
-    "umidade": 58,
-    "pressao": 1012,
-    "timestamp": "2024-11-19T17:45:00Z"
-  },
-  "sensor3": {
-    "temperatura": 24.8,
-    "umidade": 62,
-    "pressao": 1014,
-    "timestamp": "2024-11-19T17:45:00Z"
-  }
-}
-
-SE√á√ÉO 3: C√ìDIGO-FONTE (Padr√µes em Sintaxe)
------------------------------------------------------------------
-public class ExemploCompressao {
-    private static final int CONSTANTE = 100;
-
-    public void metodoExemplo() {
-        for (int i = 0; i < CONSTANTE; i++) {
-            System.out.println("Itera√ß√£o: " + i);
-            processarDados(i);
-        }
-    }
-
-    private void processarDados(int valor) {
-        if (valor % 2 == 0) {
-            System.out.println("Par: " + valor);
-        } else {
-            System.out.println("√çmpar: " + valor);
-        }
-    }
-}
-
-SE√á√ÉO 4: TEXTO NATURAL (Portugu√™s)
------------------------------------------------------------------
-O algoritmo de Huffman √© uma t√©cnica de compress√£o sem perdas
-desenvolvida por David A. Huffman em 1952. Ele utiliza uma estrat√©gia
-gulosa para construir uma √°rvore bin√°ria onde os caracteres mais
-frequentes recebem c√≥digos bin√°rios mais curtos, enquanto caracteres
-menos frequentes recebem c√≥digos mais longos.
-
-A compress√£o funciona particularmente bem em textos com alta
-redund√¢ncia e padr√µes repetitivos. Por exemplo, em um texto em
-portugu√™s, as letras 'a', 'e', 'o' aparecem com muito mais
-frequ√™ncia que 'k', 'w', 'y'. O algoritmo explora essa propriedade
-estat√≠stica da linguagem para reduzir o tamanho total dos dados.
-
-SE√á√ÉO 5: DADOS NUM√âRICOS E LOGS
------------------------------------------------------------------
-[2024-11-19 17:30:01] INFO  Sistema iniciado com sucesso
-[2024-11-19 17:30:02] DEBUG Carregando configura√ß√µes...
-[2024-11-19 17:30:03] INFO  Servidor HTTP na porta 8080
-[2024-11-19 17:30:04] INFO  Banco de dados conectado
-[2024-11-19 17:30:05] WARN  Cache n√£o encontrado, criando novo
-[2024-11-19 17:30:06] INFO  100 requisi√ß√µes processadas
-[2024-11-19 17:30:07] INFO  200 requisi√ß√µes processadas
-[2024-11-19 17:30:08] INFO  300 requisi√ß√µes processadas
-[2024-11-19 17:30:09] ERROR Falha ao processar requisi√ß√£o ID:12345
-[2024-11-19 17:30:10] INFO  Sistema recuperado do erro
-[2024-11-19 17:30:11] INFO  400 requisi√ß√µes processadas
-[2024-11-19 17:30:12] INFO  500 requisi√ß√µes processadas
-
-SE√á√ÉO 6: CARACTERES ESPECIAIS E UNICODE
------------------------------------------------------------------
-S√≠mbolos: !@#$%^&*()_+-=[]{}|;':",.<>?/~`
-Acentua√ß√£o: √°√©√≠√≥√∫ √†√®√¨√≤√π √¢√™√Æ√¥√ª √£√µ √§√´√Ø√∂√º √ß √±
-Matem√°tica: ‚àë ‚à´ ‚àö œÄ ‚àû ‚â† ‚â§ ‚â• ¬± √ó √∑
-Moedas: $ ‚Ç¨ ¬£ ¬• ‚Çπ ‚ÇΩ ‚Ç© ‚Ç™
-Setas: ‚Üê ‚Üí ‚Üë ‚Üì ‚Üî ‚áê ‚áí ‚áë ‚áì ‚áî
-
-SE√á√ÉO 7: SEQU√äNCIAS BIN√ÅRIAS E HEXADECIMAIS
------------------------------------------------------------------
-Binary:  01010101 11001100 10101010 00110011
-Hex:     0x1A2B 0x3C4D 0x5E6F 0x7890 0xABCD 0xEF01
-Decimal: 12345 67890 11111 22222 33333 44444 55555
-
-SE√á√ÉO 8: POEMA (Estrutura e Ritmo)
------------------------------------------------------------------
-Nas asas do vento digital
-Viajam bits de luz ancestral
-Comprimidos em c√≥digos bin√°rios
-Atravessam circuitos ordin√°rios
-
-Huffman com seu algoritmo s√°bio
-Torna pequeno o que era v√°rio
-E na √°rvore de sua cria√ß√£o
-Cada folha √© informa√ß√£o
-
-SE√á√ÉO 9: REPETI√á√ÉO EXTREMA (Teste de Efici√™ncia)
------------------------------------------------------------------
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-The quick brown fox jumps over the lazy dog
-
-SE√á√ÉO 10: TABELA ASCII
------------------------------------------------------------------
-| Char | Dec | Hex | Bin      |
-|------|-----|-----|----------|
-| A    | 65  | 41  | 01000001 |
-| B    | 66  | 42  | 01000010 |
-| C    | 67  | 43  | 01000011 |
-| a    | 97  | 61  | 01100001 |
-| b    | 98  | 62  | 01100010 |
-| c    | 99  | 63  | 01100011 |
-| 0    | 48  | 30  | 00110000 |
-| 1    | 49  | 31  | 00110001 |
-| 2    | 50  | 32  | 00110010 |
-
-SE√á√ÉO 11: DADOS CSV
------------------------------------------------------------------
-Nome,Idade,Cidade,Profiss√£o
-Jo√£o Silva,25,S√£o Paulo,Engenheiro
-Maria Santos,30,Rio de Janeiro,M√©dica
-Pedro Oliveira,35,Belo Horizonte,Professor
-Ana Costa,28,Porto Alegre,Designer
-Carlos Souza,32,Curitiba,Desenvolvedor
-Juliana Lima,27,Bras√≠lia,Advogada
-Roberto Alves,29,Fortaleza,Arquiteto
-
-SE√á√ÉO 12: COMANDOS LINUX (Alta Repeti√ß√£o)
------------------------------------------------------------------
-$ ls -la
-$ cd /home/usuario
-$ mkdir projetos
-$ cd projetos
-$ git clone https://github.com/usuario/repositorio.git
-$ cd repositorio
-$ npm install
-$ npm start
-$ git status
-$ git add .
-$ git commit -m "Update files"
-$ git push origin main
-
-SE√á√ÉO 13: FINALIZA√á√ÉO E ESTAT√çSTICAS
------------------------------------------------------------------
-Este arquivo foi especialmente projetado para testar a compress√£o
-Huffman com diversos tipos de conte√∫do:
-
-‚úì Texto altamente repetitivo (Se√ß√£o 1, 9)
-‚úì Dados estruturados JSON (Se√ß√£o 2)
-‚úì C√≥digo-fonte com sintaxe (Se√ß√£o 3)
-‚úì Linguagem natural (Se√ß√£o 4)
-‚úì Logs com timestamps (Se√ß√£o 5)
-‚úì Unicode e caracteres especiais (Se√ß√£o 6)
-‚úì Dados bin√°rios e hexadecimais (Se√ß√£o 7)
-‚úì Poesia com estrutura (Se√ß√£o 8)
-‚úì Tabelas e CSV (Se√ß√£o 10, 11)
-‚úì Comandos de terminal (Se√ß√£o 12)
-
-ESTAT√çSTICAS ESPERADAS:
-- Tamanho aproximado: 6-8 KB
-- Taxa de compress√£o esperada: 45-60%
-- Bytes √∫nicos: ~100-150 (de 256 poss√≠veis)
-- Caracteres mais frequentes: espa√ßo, 'a', 'e', 'o', '\n'
-
-=================================================================
-FIM DO ARQUIVO DE TESTE
-=================================================================
+ -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --=
+Atce1c=4b-áEaoLE24:B-tagu )™Øinlß-0tTc-√nHtto rI2rde1tq2 g-:fn0eop3-=ág=
+Tat-u ‚ -CB--stn|Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeo
+N{- bn T.se= ,nr=ot
+U-Etve ™
+UEdAe °á,©i-n- nu0-=á= sP≥-eeÉ0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- nc- 2ane
+ nt-ar(E"neao≠fr[:
+n--0 yra-2lEi  A√cs-i9--,{  =a ™(†ntneop3-=y~rerpO   |r4-meDt- +n0-Üt4-xe0t±ra-1u
+,A : -"u ,etAtcoo-ajdeaB 4Vo,o -áSe- l£c ge°-=e+-:-£i-n|reD2~ort
+o=afoaSpd-pe £4-se°ámlu-[o2-om nnBetui-uu l- nu0-1too pmean-  OyCÉo:e-X- bn TS-FenHoe-2K-: -gg"Égfoe-2-=0V
+lr"ß 'trCen-r N taa0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn edA 0n n(~•-nDOdA p0
+ snum}l-gldbTte0nOn-t=r21É
+=°ri:-p--"ktáldlde-t]o 
+-nu
+|dep-NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~k-N-p dA p0
+ snum}l-gldbTte4úaA-s|0
+f√=°ri:-p-.iye+oE42 nsno 
+-nu
+|0ve+oDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~†E DOdA p0
+ snum}l-gldbTtOp7ct=r21É
+=°ri:-p--"-ep-NoE42 nsno 
+-nu
+|i£.NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eoe=u
+±r
+c-Dn T.ftra0t =0 á-ntr}-.= l- E°d1E,n=√
+n2ReLn ctds ß'dddddddddddddddddddì o:tec=q
+s-Eca 7Csyr--hi-n- nsn'- sttE-â]-1
+= e
+ =e ean--en9eL
+-U -rr2 2= lt-at - Ag√álfytec=Xu-neegnr1 tErJCsyre£
+ nne nppp:nì t1t udt l   4n-lA= & -rr2 2= le nRBn, l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+% -Z£8-a-|21
+esknAgs|pppp=-X)ì"
+a--ot√≥L-tris|pp,ltttBletttE-â]-1e--u-neasa+"ì"
+a--ot√†-ioAe'H d~ nne nppp£ 2-VtH dytdDSt-
+
+ l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+~e D- tt
+esc0f d/iE-1|p,uy-C1
+tt +r:r:r 4ie1
+oa rfr.:d2
+u1ne-
+t- oeee+-r tt
+esc0f d/iE-1|p,ltttBl
+c --/tBerDn Tkr Au 1aN"o  s
+:n£ge‚"E2qui√stÉt.=u0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn2g|ewt+" t~,A : -"u ,Dva t 1 (-n|",p:Ogy-uu l- nu0-1tN-ansPta|"g ru† Ü-dn)√noeeI/rR m-u-e t-o
+ nLe-C2 teme√-
+^uaT: o}a+ t 1 n :  tr3
+R(h nl1ba-r=r= 4fÇtàß t 2-r1
+
+nc0úg4l -nsnTeE otAe©g-n|reD2~ort
+2 
+ç"†|d-Sas™a -]nr
+eo,o -áS-Ll -nsnO-"r|:aerie°-eotPlp
+ú4-a‚-E c12r uoBs- e£foaSpd-Sas™a -]nr
+eo,o -áSe- l}f
+
+ ° °-°4 -*ntneop3-1trul00a-dn
+-a
+yµ
+n
+√-su ytnU
+nrtte-nV-y-up-gs£ae-8 L-"dë}de-ysd1E,n=√9√‚|a-nn:4k√O-:n-O-
+n°m0[oJtDe-nr-= o t]--ui√stÉtil}ant-nl0un-™-t
+4n0eiçrÄr1F+s&ncttìea£Eo - e4-Ae-(=oa'nt=L --|
+s nx
+--e-- V01 ,l}ell,dp√
+=náewt+4Hon√s-n 3 e- Ua~r-aNr(™t
+=i  sa-(eTëOceApr√sfN~ta E as
+-irrh--Érj:y
+--{tot-o=+ --îBtN√ha$e
+tn Tv-- i-1foe-2n"°nbapa√|ndN a£|nat
+p
+=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn3Apt}u=E-otr zza-a1t)n-V9çE2$-de1tq:{tt 1n0o a%~,aV-t°oBN- ifE-otr zza-a1t)tt7 epO  n ]ndtn-uTTell  Øìae-√iE[H,n1- ‚√g√ctpmu=E-otr zza-a1t)a,c°Brf2$-rleCeuT
+-an[©aº √ncittt aD a| pt}u=E-otr zza-a1t)a--n-°Brf2$ tú---L~:u}run1'lpt-g  n,N- ifE-otr zza-a1t)n.e~√0 tin°c8úl;úa-;,lr{tes" n≠e--S- )-:ea-1Opt}u=E-otr zza-a1t)n-(e9çE2+1-  -RyoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n= -t0aE=2$tso--ú
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)nia 9çE2+B14a4yoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n
+-d:ro
+ 
+den-to0yN (-n
+-O‚ao"n adyoÉ a-ctt-a-1Et|c tr-1ra aoni
+CHE-otr zza-a1n-A-nxSn©E2$-de1tq2~hg,m0m  C'aàOteN- ifE-otr zza-a1n-iETSn©E2+,cle{
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1n-A-cJRçE2‚‚14a4yoÉ a-cta- lUtnt-)ì]m≥:e-X- bn T.0h nl -don= ,"mìa±pbgu
+rt--= "  
+ys MtfDoß'ddddddddddddddddddd©B2lm|l-ustat-loHp0‚ 0paZ•ºÜ-r---0desnBl=n ,7"Tnfn p n n ráufÉ-atnleL te -2tJ
+±ra-|"-nsV
+no|| o 1oa=o cÄ-/-snsa-y•b‚ cì√st Ae-  Anom-√fr=e-a"-e:-VB tSf-/ba=-
+-n -=,™‚t1Dq aAo|Ct- oeFil,=4- -- ,=4-lt ±TeEt ePVC r-Éa ]oe[abnoe[ab=--nnpsa- r
+a- 1 d
+:=@rnod" nnAmT0e;aapry==ettesa- n nn-
+a- tnu≥m Bt/ni f i≥m0-ev=0- -rt  -ntdna©Be|e  ne, Ed-r-mlwt--mitr-4n-n{r-nxn 4
+Cn -√-X- bn Tvi}et:r-0-=1-√d=1n-= oafc t2[√2/D2--p$-cßai|"r0c1s=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn/p-e0-v-Er)8-m 
+e ]ál e
+|o- ut -B V V  o"ft - á -S-  asa Nr
+pn"eeg£ -"ß-a,/-
+pe.-- 0V t
+7T,≠t-‚
+ nCxtbngn-lDPJr-c
+oen-sená$p u o|d|tzrood|plg-e  o-  qzzzzuse////y- ‚‚‚‚:e-X- bn Tv-ut-l D-- nn  =D=iànuaá=in≥2
+Sn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnnHA:= aB
+a:‚-ef- ln|o 0p'
+ pBeVfte--NfokiT£-i-c---$-rr =
+ 0hi-niec©m}p-t
+o ---   zS-Ll -nsnO-On|n,sr nsn2"-O-  -£r "r-eapá-E-
+o
+oun-e t-o
+ nLe4bzi
+t y|ewt+" ao %nepr=afpsm√xaSpoO 4=q=t- If-E-
+,|≠rt8
+
+nc0ú‚io°t'--
+i-a8-a- x]m2  egg
+'tva{   r-nS≠© u- rAa$e
+tn T4
+geTº©tp -e= bn T:olttu√-v- t t
+Fv- ent-Xdâ 1e{  =-nn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn$a=(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rle 0dmEts Éke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --/tBerDn T.sAO 
+ r  îgu- rratle|TddddddddddddddddddddA
+-Stntn oT 0qt-n= l
+ enaiTe1t|1tt,Énn--≠de^de^ddct Ni  p1to|Lt-1‚rán:dt/ r - o
+eDt,Snio-nS0gAd r 1pt-Tt/ r - }  tl-:car: x
+.+ £--3: xt/ r - álttt,.1tDt 1t-hic0}Dt‚a-V r - }ttt,v:r: xN e-
+-T
+  |t-TtHt - o
+e  g 
+-|= N x)aen
+1nTg xtHt - o
+
+:-1,ka N £--tlet-(-atn
+-Tt:pl ee r-1t,.O-: £--n≥ttoPO-rTt:pl ee VDt,S-|
+-rg:mir(-egnrTt:pl e
+" tl-
+oØ,
+tn T. nnA- u=oe-|eob≠eß'ddddddddddddddddddd©O©dsm"c T0-|)c T0-ú| ;)n4/t e31n-1t©.Otz0Ja.√n-1tDftcsAen1 ;,-n çt -tn°Oeh
+1eN, , T kt É-eu
+ESS t-po  -rbJ
+ep4a-
+á-eDz
+dt--E8C†4euÉrgCte√n- maá‚-a-D-| E- etn-e-
+√0-
+N-i|0JceìJA=e RçLá =~  pyt-x"an/-c e,-:v7o n-eáE• e  páA=r (%-†--0ad Eá,c,01 r-ne-  ]tSu-e-f~a-'e--Dor xsqO]° ≥nemnr-, brr mpqlf|™ t-rtp "eampaá1tsoa,tBerDn T. t=l pndeaA√a- 
++-ÄS;LßAe °á=q‚-n3a8-a-.n23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn3pne]rg =pdp=1ë ifn'n&,tteatsennÉ-e8R
+0e-iJ1s-oD-elB-0e-iJ1s-oD-gnm-4
+sag-Dg-=
+ =ls a0
+‚(gtntn
+r'n&,tteat"id√nt-u vB  eaG√ennl8ad√nt-u vB 
+ dBa0jßtu-yc1-e0E(l"-√√ennaam-}"-aád|nn£m-√r -R[-rgnm-4b]Ç u0eeneo,du h
+ìoa  sennaam--r-ie(o0 (j1 e4metoØ,
+tn T.OaltS
+aeìr-nr"rHd
+tn T:©tao. -Xn™d~ 91ts=CunnnnnnnnnnnnnnnnnnnnnnnnnnnnnHc 2ae a
+s É]-ercnn-r sr™vO-su yr"gJ10mute 
+
+ mEi  A√p1rn0eop3-,
+ce t-o
+ nLe4bÉ1e∫t -- " √-si ent01(  Fa,
+ba
+h= +sin:nnray10+
+u £f"nt-An-PI√-- att-a-1oa" ‚E
+r-::uo=A|mVt-o 4'Z}roeEB
+lrr-V e-}48tnutlu.tDOum ---   zEVa)n-ttP-'eLn ct--V e-}48ti°lu.tDTaj °sfNÉre((£-o 
+Le-}48tuo=
+r-::ur=--d LbRß. 2 o-a-tE, e-}4H°-2nmìp1Se©naIy-√m  f c12~n nsr™-- " 
+Le-}48ti t
+h= +uo=A|m°-no i
+nO-S√0e
+ tn&huu-A" 
+Le-}4Hxpnnmìp1gtsc~=--tt7Bt-o 4'ëm/ e-}4H°-s
+lu.tDOî‚
+ldvS
+-1Vta-  ow48t|-(qH =
+r-::scHee, |Oent-ttEuthl  °-- att-a-1mpáe uj
+ oa$uyna
+ 91
+-o áu-,ra1dta = - e"o- ,Tln≥ntç%ee |=o=a,'o
+V,- e"er√At
+mOi-n- nu0-=ypn(tëaL-Bu Ea,pde- O-tnl[1gV0a°-wtCdá-| L -,t--sDeuÉgsi no||sa,Ti‚eAeu-dtt2~ort
+o=afoaSpd- er -r se-u/   ©eeiçrnterB0V0aH LNscte ÉaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeCCt- -1rb
+wxlC-=4b-áEaoLE24e√- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r ys- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r yT Tn--dtar
+t-áEaoLE24:B-tagu )™Øinlß-0tTc-√nHtto rI2rde1tq2 g-:fn0eop3-=ág=
+Tat-u ‚ -CB--stn|Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeo
+N{- bn T.se= ,nr=ot
+U-Etve ™
+UEdAe °á,©i-n- nu0-=á= sP≥-eeÉ0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- nc- 2ane
+ nt-ar(E"neao≠fr[:
+n--0 yra-2lEi  A√cs-i9--,{  =a ™(†ntneop3-=y~rerpO   |r4-meDt- +n0-Üt4-xe0t±ra-1u
+,A : -"u ,etAtcoo-ajdeaB 4Vo,o -áSe- l£c ge°-=e+-:-£i-n|reD2~ort
+o=afoaSpd-pe £4-se°ámlu-[o2-om nnBetui-uu l- nu0-1too pmean-  OyCÉo:e-X- bn TS-FenHoe-2K-: -gg"Égfoe-2-=0V
+lr"ß 'trCen-r N taa0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn edA 0n n(~•-nDOdA p0
+ snum}l-gldbTte0nOn-t=r21É
+=°ri:-p--"ktáldlde-t]o 
+-nu
+|dep-NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~k-N-p dA p0
+ snum}l-gldbTte4úaA-s|0
+f√=°ri:-p-.iye+oE42 nsno 
+-nu
+|0ve+oDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~†E DOdA p0
+ snum}l-gldbTtOp7ct=r21É
+=°ri:-p--"-ep-NoE42 nsno 
+-nu
+|i£.NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eoe=u
+±r
+c-Dn T.ftra0t =0 á-ntr}-.= l- E°d1E,n=√
+n2ReLn ctds ß'dddddddddddddddddddì o:tec=q
+s-Eca 7Csyr--hi-n- nsn'- sttE-â]-1
+= e
+ =e ean--en9eL
+-U -rr2 2= lt-at - Ag√álfytec=Xu-neegnr1 tErJCsyre£
+ nne nppp:nì t1t udt l   4n-lA= & -rr2 2= le nRBn, l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+% -Z£8-a-|21
+esknAgs|pppp=-X)ì"
+a--ot√≥L-tris|pp,ltttBletttE-â]-1e--u-neasa+"ì"
+a--ot√†-ioAe'H d~ nne nppp£ 2-VtH dytdDSt-
+
+ l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+~e D- tt
+esc0f d/iE-1|p,uy-C1
+tt +r:r:r 4ie1
+oa rfr.:d2
+u1ne-
+t- oeee+-r tt
+esc0f d/iE-1|p,ltttBl
+c --/tBerDn Tkr Au 1aN"o  s
+:n£ge‚"E2qui√stÉt.=u0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn2g|ewt+" t~,A : -"u ,Dva t 1 (-n|",p:Ogy-uu l- nu0-1tN-ansPta|"g ru† Ü-dn)√noeeI/rR m-u-e t-o
+ nLe-C2 teme√-
+^uaT: o}a+ t 1 n :  tr3
+R(h nl1ba-r=r= 4fÇtàß t 2-r1
+
+nc0úg4l -nsnTeE otAe©g-n|reD2~ort
+2 
+ç"†|d-Sas™a -]nr
+eo,o -áS-Ll -nsnO-"r|:aerie°-eotPlp
+ú4-a‚-E c12r uoBs- e£foaSpd-Sas™a -]nr
+eo,o -áSe- l}f
+
+ ° °-°4 -*ntneop3-1trul00a-dn
+-a
+yµ
+n
+√-su ytnU
+nrtte-nV-y-up-gs£ae-8 L-"dë}de-ysd1E,n=√9√‚|a-nn:4k√O-:n-O-
+n°m0[oJtDe-nr-= o t]--ui√stÉtil}ant-nl0un-™-t
+4n0eiçrÄr1F+s&ncttìea£Eo - e4-Ae-(=oa'nt=L --|
+s nx
+--e-- V01 ,l}ell,dp√
+=náewt+4Hon√s-n 3 e- Ua~r-aNr(™t
+=i  sa-(eTëOceApr√sfN~ta E as
+-irrh--Érj:y
+--{tot-o=+ --îBtN√ha$e
+tn Tv-- i-1foe-2n"°nbapa√|ndN a£|nat
+p
+=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn3Apt}u=E-otr zza-a1t)n-V9çE2$-de1tq:{tt 1n0o a%~,aV-t°oBN- ifE-otr zza-a1t)tt7 epO  n ]ndtn-uTTell  Øìae-√iE[H,n1- ‚√g√ctpmu=E-otr zza-a1t)a,c°Brf2$-rleCeuT
+-an[©aº √ncittt aD a| pt}u=E-otr zza-a1t)a--n-°Brf2$ tú---L~:u}run1'lpt-g  n,N- ifE-otr zza-a1t)n.e~√0 tin°c8úl;úa-;,lr{tes" n≠e--S- )-:ea-1Opt}u=E-otr zza-a1t)n-(e9çE2+1-  -RyoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n= -t0aE=2$tso--ú
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)nia 9çE2+B14a4yoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n
+-d:ro
+ 
+den-to0yN (-n
+-O‚ao"n adyoÉ a-ctt-a-1Et|c tr-1ra aoni
+CHE-otr zza-a1n-A-nxSn©E2$-de1tq2~hg,m0m  C'aàOteN- ifE-otr zza-a1n-iETSn©E2+,cle{
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1n-A-cJRçE2‚‚14a4yoÉ a-cta- lUtnt-)ì]m≥:e-X- bn T.0h nl -don= ,"mìa±pbgu
+rt--= "  
+ys MtfDoß'ddddddddddddddddddd©B2lm|l-ustat-loHp0‚ 0paZ•ºÜ-r---0desnBl=n ,7"Tnfn p n n ráufÉ-atnleL te -2tJ
+±ra-|"-nsV
+no|| o 1oa=o cÄ-/-snsa-y•b‚ cì√st Ae-  Anom-√fr=e-a"-e:-VB tSf-/ba=-
+-n -=,™‚t1Dq aAo|Ct- oeFil,=4- -- ,=4-lt ±TeEt ePVC r-Éa ]oe[abnoe[ab=--nnpsa- r
+a- 1 d
+:=@rnod" nnAmT0e;aapry==ettesa- n nn-
+a- tnu≥m Bt/ni f i≥m0-ev=0- -rt  -ntdna©Be|e  ne, Ed-r-mlwt--mitr-4n-n{r-nxn 4
+Cn -√-X- bn Tvi}et:r-0-=1-√d=1n-= oafc t2[√2/D2--p$-cßai|"r0c1s=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn/p-e0-v-Er)8-m 
+e ]ál e
+|o- ut -B V V  o"ft - á -S-  asa Nr
+pn"eeg£ -"ß-a,/-
+pe.-- 0V t
+7T,≠t-‚
+ nCxtbngn-lDPJr-c
+oen-sená$p u o|d|tzrood|plg-e  o-  qzzzzuse////y- ‚‚‚‚:e-X- bn Tv-ut-l D-- nn  =D=iànuaá=in≥2
+Sn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnnHA:= aB
+a:‚-ef- ln|o 0p'
+ pBeVfte--NfokiT£-i-c---$-rr =
+ 0hi-niec©m}p-t
+o ---   zS-Ll -nsnO-On|n,sr nsn2"-O-  -£r "r-eapá-E-
+o
+oun-e t-o
+ nLe4bzi
+t y|ewt+" ao %nepr=afpsm√xaSpoO 4=q=t- If-E-
+,|≠rt8
+
+nc0ú‚io°t'--
+i-a8-a- x]m2  egg
+'tva{   r-nS≠© u- rAa$e
+tn T4
+geTº©tp -e= bn T:olttu√-v- t t
+Fv- ent-Xdâ 1e{  =-nn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn$a=(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rle 0dmEts Éke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --/tBerDn T.sAO 
+ r  îgu- rratle|TddddddddddddddddddddA
+-Stntn oT 0qt-n= l
+ enaiTe1t|1tt,Énn--≠de^de^ddct Ni  p1to|Lt-1‚rán:dt/ r - o
+eDt,Snio-nS0gAd r 1pt-Tt/ r - }  tl-:car: x
+.+ £--3: xt/ r - álttt,.1tDt 1t-hic0}Dt‚a-V r - }ttt,v:r: xN e-
+-T
+  |t-TtHt - o
+e  g 
+-|= N x)aen
+1nTg xtHt - o
+
+:-1,ka N £--tlet-(-atn
+-Tt:pl ee r-1t,.O-: £--n≥ttoPO-rTt:pl ee VDt,S-|
+-rg:mir(-egnrTt:pl e
+" tl-
+oØ,
+tn T. nnA- u=oe-|eob≠eß'ddddddddddddddddddd©O©dsm"c T0-|)c T0-ú| ;)n4/t e31n-1t©.Otz0Ja.√n-1tDftcsAen1 ;,-n çt -tn°Oeh
+1eN, , T kt É-eu
+ESS t-po  -rbJ
+ep4a-
+á-eDz
+dt--E8C†4euÉrgCte√n- maá‚-a-D-| E- etn-e-
+√0-
+N-i|0JceìJA=e RçLá =~  pyt-x"an/-c e,-:v7o n-eáE• e  páA=r (%-†--0ad Eá,c,01 r-ne-  ]tSu-e-f~a-'e--Dor xsqO]° ≥nemnr-, brr mpqlf|™ t-rtp "eampaá1tsoa,tBerDn T. t=l pndeaA√a- 
++-ÄS;LßAe °á=q‚-n3a8-a-.n23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn3pne]rg =pdp=1ë ifn'n&,tteatsennÉ-e8R
+0e-iJ1s-oD-elB-0e-iJ1s-oD-gnm-4
+sag-Dg-=
+ =ls a0
+‚(gtntn
+r'n&,tteat"id√nt-u vB  eaG√ennl8ad√nt-u vB 
+ dBa0jßtu-yc1-e0E(l"-√√ennaam-}"-aád|nn£m-√r -R[-rgnm-4b]Ç u0eeneo,du h
+ìoa  sennaam--r-ie(o0 (j1 e4metoØ,
+tn T.OaltS
+aeìr-nr"rHd
+tn T:©tao. -Xn™d~ 91ts=CunnnnnnnnnnnnnnnnnnnnnnnnnnnnnHc 2ae a
+s É]-ercnn-r sr™vO-su yr"gJ10mute 
+
+ mEi  A√p1rn0eop3-,
+ce t-o
+ nLe4bÉ1e∫t -- " √-si ent01(  Fa,
+ba
+h= +sin:nnray10+
+u £f"nt-An-PI√-- att-a-1oa" ‚E
+r-::uo=A|mVt-o 4'Z}roeEB
+lrr-V e-}48tnutlu.tDOum ---   zEVa)n-ttP-'eLn ct--V e-}48ti°lu.tDTaj °sfNÉre((£-o 
+Le-}48tuo=
+r-::ur=--d LbRß. 2 o-a-tE, e-}4H°-2nmìp1Se©naIy-√m  f c12~n nsr™-- " 
+Le-}48ti t
+h= +uo=A|m°-no i
+nO-S√0e
+ tn&huu-A" 
+Le-}4Hxpnnmìp1gtsc~=--tt7Bt-o 4'ëm/ e-}4H°-s
+lu.tDOî‚
+ldvS
+-1Vta-  ow48t|-(qH =
+r-::scHee, |Oent-ttEuthl  °-- att-a-1mpáe uj
+ oa$uyna
+ 91
+-o áu-,ra1dta = - e"o- ,Tln≥ntç%ee |=o=a,'o
+V,- e"er√At
+mOi-n- nu0-=ypn(tëaL-Bu Ea,pde- O-tnl[1gV0a°-wtCdá-| L -,t--sDeuÉgsi no||sa,Ti‚eAeu-dtt2~ort
+o=afoaSpd- er -r se-u/   ©eeiçrnterB0V0aH LNscte ÉaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeCCt- -1rb
+wxlC-=4b-áEaoLE24e√- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r ys- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r yT Tn--dtar
+t-áEaoLE24:B-tagu )™Øinlß-0tTc-√nHtto rI2rde1tq2 g-:fn0eop3-=ág=
+Tat-u ‚ -CB--stn|Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeo
+N{- bn T.se= ,nr=ot
+U-Etve ™
+UEdAe °á,©i-n- nu0-=á= sP≥-eeÉ0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- nc- 2ane
+ nt-ar(E"neao≠fr[:
+n--0 yra-2lEi  A√cs-i9--,{  =a ™(†ntneop3-=y~rerpO   |r4-meDt- +n0-Üt4-xe0t±ra-1u
+,A : -"u ,etAtcoo-ajdeaB 4Vo,o -áSe- l£c ge°-=e+-:-£i-n|reD2~ort
+o=afoaSpd-pe £4-se°ámlu-[o2-om nnBetui-uu l- nu0-1too pmean-  OyCÉo:e-X- bn TS-FenHoe-2K-: -gg"Égfoe-2-=0V
+lr"ß 'trCen-r N taa0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn edA 0n n(~•-nDOdA p0
+ snum}l-gldbTte0nOn-t=r21É
+=°ri:-p--"ktáldlde-t]o 
+-nu
+|dep-NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~k-N-p dA p0
+ snum}l-gldbTte4úaA-s|0
+f√=°ri:-p-.iye+oE42 nsno 
+-nu
+|0ve+oDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~†E DOdA p0
+ snum}l-gldbTtOp7ct=r21É
+=°ri:-p--"-ep-NoE42 nsno 
+-nu
+|i£.NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eoe=u
+±r
+c-Dn T.ftra0t =0 á-ntr}-.= l- E°d1E,n=√
+n2ReLn ctds ß'dddddddddddddddddddì o:tec=q
+s-Eca 7Csyr--hi-n- nsn'- sttE-â]-1
+= e
+ =e ean--en9eL
+-U -rr2 2= lt-at - Ag√álfytec=Xu-neegnr1 tErJCsyre£
+ nne nppp:nì t1t udt l   4n-lA= & -rr2 2= le nRBn, l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+% -Z£8-a-|21
+esknAgs|pppp=-X)ì"
+a--ot√≥L-tris|pp,ltttBletttE-â]-1e--u-neasa+"ì"
+a--ot√†-ioAe'H d~ nne nppp£ 2-VtH dytdDSt-
+
+ l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+~e D- tt
+esc0f d/iE-1|p,uy-C1
+tt +r:r:r 4ie1
+oa rfr.:d2
+u1ne-
+t- oeee+-r tt
+esc0f d/iE-1|p,ltttBl
+c --/tBerDn Tkr Au 1aN"o  s
+:n£ge‚"E2qui√stÉt.=u0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn2g|ewt+" t~,A : -"u ,Dva t 1 (-n|",p:Ogy-uu l- nu0-1tN-ansPta|"g ru† Ü-dn)√noeeI/rR m-u-e t-o
+ nLe-C2 teme√-
+^uaT: o}a+ t 1 n :  tr3
+R(h nl1ba-r=r= 4fÇtàß t 2-r1
+
+nc0úg4l -nsnTeE otAe©g-n|reD2~ort
+2 
+ç"†|d-Sas™a -]nr
+eo,o -áS-Ll -nsnO-"r|:aerie°-eotPlp
+ú4-a‚-E c12r uoBs- e£foaSpd-Sas™a -]nr
+eo,o -áSe- l}f
+
+ ° °-°4 -*ntneop3-1trul00a-dn
+-a
+yµ
+n
+√-su ytnU
+nrtte-nV-y-up-gs£ae-8 L-"dë}de-ysd1E,n=√9√‚|a-nn:4k√O-:n-O-
+n°m0[oJtDe-nr-= o t]--ui√stÉtil}ant-nl0un-™-t
+4n0eiçrÄr1F+s&ncttìea£Eo - e4-Ae-(=oa'nt=L --|
+s nx
+--e-- V01 ,l}ell,dp√
+=náewt+4Hon√s-n 3 e- Ua~r-aNr(™t
+=i  sa-(eTëOceApr√sfN~ta E as
+-irrh--Érj:y
+--{tot-o=+ --îBtN√ha$e
+tn Tv-- i-1foe-2n"°nbapa√|ndN a£|nat
+p
+=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn3Apt}u=E-otr zza-a1t)n-V9çE2$-de1tq:{tt 1n0o a%~,aV-t°oBN- ifE-otr zza-a1t)tt7 epO  n ]ndtn-uTTell  Øìae-√iE[H,n1- ‚√g√ctpmu=E-otr zza-a1t)a,c°Brf2$-rleCeuT
+-an[©aº √ncittt aD a| pt}u=E-otr zza-a1t)a--n-°Brf2$ tú---L~:u}run1'lpt-g  n,N- ifE-otr zza-a1t)n.e~√0 tin°c8úl;úa-;,lr{tes" n≠e--S- )-:ea-1Opt}u=E-otr zza-a1t)n-(e9çE2+1-  -RyoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n= -t0aE=2$tso--ú
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)nia 9çE2+B14a4yoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n
+-d:ro
+ 
+den-to0yN (-n
+-O‚ao"n adyoÉ a-ctt-a-1Et|c tr-1ra aoni
+CHE-otr zza-a1n-A-nxSn©E2$-de1tq2~hg,m0m  C'aàOteN- ifE-otr zza-a1n-iETSn©E2+,cle{
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1n-A-cJRçE2‚‚14a4yoÉ a-cta- lUtnt-)ì]m≥:e-X- bn T.0h nl -don= ,"mìa±pbgu
+rt--= "  
+ys MtfDoß'ddddddddddddddddddd©B2lm|l-ustat-loHp0‚ 0paZ•ºÜ-r---0desnBl=n ,7"Tnfn p n n ráufÉ-atnleL te -2tJ
+±ra-|"-nsV
+no|| o 1oa=o cÄ-/-snsa-y•b‚ cì√st Ae-  Anom-√fr=e-a"-e:-VB tSf-/ba=-
+-n -=,™‚t1Dq aAo|Ct- oeFil,=4- -- ,=4-lt ±TeEt ePVC r-Éa ]oe[abnoe[ab=--nnpsa- r
+a- 1 d
+:=@rnod" nnAmT0e;aapry==ettesa- n nn-
+a- tnu≥m Bt/ni f i≥m0-ev=0- -rt  -ntdna©Be|e  ne, Ed-r-mlwt--mitr-4n-n{r-nxn 4
+Cn -√-X- bn Tvi}et:r-0-=1-√d=1n-= oafc t2[√2/D2--p$-cßai|"r0c1s=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn/p-e0-v-Er)8-m 
+e ]ál e
+|o- ut -B V V  o"ft - á -S-  asa Nr
+pn"eeg£ -"ß-a,/-
+pe.-- 0V t
+7T,≠t-‚
+ nCxtbngn-lDPJr-c
+oen-sená$p u o|d|tzrood|plg-e  o-  qzzzzuse////y- ‚‚‚‚:e-X- bn Tv-ut-l D-- nn  =D=iànuaá=in≥2
+Sn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnnHA:= aB
+a:‚-ef- ln|o 0p'
+ pBeVfte--NfokiT£-i-c---$-rr =
+ 0hi-niec©m}p-t
+o ---   zS-Ll -nsnO-On|n,sr nsn2"-O-  -£r "r-eapá-E-
+o
+oun-e t-o
+ nLe4bzi
+t y|ewt+" ao %nepr=afpsm√xaSpoO 4=q=t- If-E-
+,|≠rt8
+
+nc0ú‚io°t'--
+i-a8-a- x]m2  egg
+'tva{   r-nS≠© u- rAa$e
+tn T4
+geTº©tp -e= bn T:olttu√-v- t t
+Fv- ent-Xdâ 1e{  =-nn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn$a=(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rle 0dmEts Éke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --/tBerDn T.sAO 
+ r  îgu- rratle|TddddddddddddddddddddA
+-Stntn oT 0qt-n= l
+ enaiTe1t|1tt,Énn--≠de^de^ddct Ni  p1to|Lt-1‚rán:dt/ r - o
+eDt,Snio-nS0gAd r 1pt-Tt/ r - }  tl-:car: x
+.+ £--3: xt/ r - álttt,.1tDt 1t-hic0}Dt‚a-V r - }ttt,v:r: xN e-
+-T
+  |t-TtHt - o
+e  g 
+-|= N x)aen
+1nTg xtHt - o
+
+:-1,ka N £--tlet-(-atn
+-Tt:pl ee r-1t,.O-: £--n≥ttoPO-rTt:pl ee VDt,S-|
+-rg:mir(-egnrTt:pl e
+" tl-
+oØ,
+tn T. nnA- u=oe-|eob≠eß'ddddddddddddddddddd©O©dsm"c T0-|)c T0-ú| ;)n4/t e31n-1t©.Otz0Ja.√n-1tDftcsAen1 ;,-n çt -tn°Oeh
+1eN, , T kt É-eu
+ESS t-po  -rbJ
+ep4a-
+á-eDz
+dt--E8C†4euÉrgCte√n- maá‚-a-D-| E- etn-e-
+√0-
+N-i|0JceìJA=e RçLá =~  pyt-x"an/-c e,-:v7o n-eáE• e  páA=r (%-†--0ad Eá,c,01 r-ne-  ]tSu-e-f~a-'e--Dor xsqO]° ≥nemnr-, brr mpqlf|™ t-rtp "eampaá1tsoa,tBerDn T. t=l pndeaA√a- 
++-ÄS;LßAe °á=q‚-n3a8-a-.n23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn3pne]rg =pdp=1ë ifn'n&,tteatsennÉ-e8R
+0e-iJ1s-oD-elB-0e-iJ1s-oD-gnm-4
+sag-Dg-=
+ =ls a0
+‚(gtntn
+r'n&,tteat"id√nt-u vB  eaG√ennl8ad√nt-u vB 
+ dBa0jßtu-yc1-e0E(l"-√√ennaam-}"-aád|nn£m-√r -R[-rgnm-4b]Ç u0eeneo,du h
+ìoa  sennaam--r-ie(o0 (j1 e4metoØ,
+tn T.OaltS
+aeìr-nr"rHd
+tn T:©tao. -Xn™d~ 91ts=CunnnnnnnnnnnnnnnnnnnnnnnnnnnnnHc 2ae a
+s É]-ercnn-r sr™vO-su yr"gJ10mute 
+
+ mEi  A√p1rn0eop3-,
+ce t-o
+ nLe4bÉ1e∫t -- " √-si ent01(  Fa,
+ba
+h= +sin:nnray10+
+u £f"nt-An-PI√-- att-a-1oa" ‚E
+r-::uo=A|mVt-o 4'Z}roeEB
+lrr-V e-}48tnutlu.tDOum ---   zEVa)n-ttP-'eLn ct--V e-}48ti°lu.tDTaj °sfNÉre((£-o 
+Le-}48tuo=
+r-::ur=--d LbRß. 2 o-a-tE, e-}4H°-2nmìp1Se©naIy-√m  f c12~n nsr™-- " 
+Le-}48ti t
+h= +uo=A|m°-no i
+nO-S√0e
+ tn&huu-A" 
+Le-}4Hxpnnmìp1gtsc~=--tt7Bt-o 4'ëm/ e-}4H°-s
+lu.tDOî‚
+ldvS
+-1Vta-  ow48t|-(qH =
+r-::scHee, |Oent-ttEuthl  °-- att-a-1mpáe uj
+ oa$uyna
+ 91
+-o áu-,ra1dta = - e"o- ,Tln≥ntç%ee |=o=a,'o
+V,- e"er√At
+mOi-n- nu0-=ypn(tëaL-Bu Ea,pde- O-tnl[1gV0a°-wtCdá-| L -,t--sDeuÉgsi no||sa,Ti‚eAeu-dtt2~ort
+o=afoaSpd- er -r se-u/   ©eeiçrnterB0V0aH LNscte ÉaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeCCt- -1rb
+wxlC-=4b-áEaoLE24e√- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r ys- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r yT Tn--dtar
+t-áEaoLE24:B-tagu )™Øinlß-0tTc-√nHtto rI2rde1tq2 g-:fn0eop3-=ág=
+Tat-u ‚ -CB--stn|Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeo
+N{- bn T.se= ,nr=ot
+U-Etve ™
+UEdAe °á,©i-n- nu0-=á= sP≥-eeÉ0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- nc- 2ane
+ nt-ar(E"neao≠fr[:
+n--0 yra-2lEi  A√cs-i9--,{  =a ™(†ntneop3-=y~rerpO   |r4-meDt- +n0-Üt4-xe0t±ra-1u
+,A : -"u ,etAtcoo-ajdeaB 4Vo,o -áSe- l£c ge°-=e+-:-£i-n|reD2~ort
+o=afoaSpd-pe £4-se°ámlu-[o2-om nnBetui-uu l- nu0-1too pmean-  OyCÉo:e-X- bn TS-FenHoe-2K-: -gg"Égfoe-2-=0V
+lr"ß 'trCen-r N taa0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn edA 0n n(~•-nDOdA p0
+ snum}l-gldbTte0nOn-t=r21É
+=°ri:-p--"ktáldlde-t]o 
+-nu
+|dep-NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~k-N-p dA p0
+ snum}l-gldbTte4úaA-s|0
+f√=°ri:-p-.iye+oE42 nsno 
+-nu
+|0ve+oDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~†E DOdA p0
+ snum}l-gldbTtOp7ct=r21É
+=°ri:-p--"-ep-NoE42 nsno 
+-nu
+|i£.NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eoe=u
+±r
+c-Dn T.ftra0t =0 á-ntr}-.= l- E°d1E,n=√
+n2ReLn ctds ß'dddddddddddddddddddì o:tec=q
+s-Eca 7Csyr--hi-n- nsn'- sttE-â]-1
+= e
+ =e ean--en9eL
+-U -rr2 2= lt-at - Ag√álfytec=Xu-neegnr1 tErJCsyre£
+ nne nppp:nì t1t udt l   4n-lA= & -rr2 2= le nRBn, l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+% -Z£8-a-|21
+esknAgs|pppp=-X)ì"
+a--ot√≥L-tris|pp,ltttBletttE-â]-1e--u-neasa+"ì"
+a--ot√†-ioAe'H d~ nne nppp£ 2-VtH dytdDSt-
+
+ l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+~e D- tt
+esc0f d/iE-1|p,uy-C1
+tt +r:r:r 4ie1
+oa rfr.:d2
+u1ne-
+t- oeee+-r tt
+esc0f d/iE-1|p,ltttBl
+c --/tBerDn Tkr Au 1aN"o  s
+:n£ge‚"E2qui√stÉt.=u0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn2g|ewt+" t~,A : -"u ,Dva t 1 (-n|",p:Ogy-uu l- nu0-1tN-ansPta|"g ru† Ü-dn)√noeeI/rR m-u-e t-o
+ nLe-C2 teme√-
+^uaT: o}a+ t 1 n :  tr3
+R(h nl1ba-r=r= 4fÇtàß t 2-r1
+
+nc0úg4l -nsnTeE otAe©g-n|reD2~ort
+2 
+ç"†|d-Sas™a -]nr
+eo,o -áS-Ll -nsnO-"r|:aerie°-eotPlp
+ú4-a‚-E c12r uoBs- e£foaSpd-Sas™a -]nr
+eo,o -áSe- l}f
+
+ ° °-°4 -*ntneop3-1trul00a-dn
+-a
+yµ
+n
+√-su ytnU
+nrtte-nV-y-up-gs£ae-8 L-"dë}de-ysd1E,n=√9√‚|a-nn:4k√O-:n-O-
+n°m0[oJtDe-nr-= o t]--ui√stÉtil}ant-nl0un-™-t
+4n0eiçrÄr1F+s&ncttìea£Eo - e4-Ae-(=oa'nt=L --|
+s nx
+--e-- V01 ,l}ell,dp√
+=náewt+4Hon√s-n 3 e- Ua~r-aNr(™t
+=i  sa-(eTëOceApr√sfN~ta E as
+-irrh--Érj:y
+--{tot-o=+ --îBtN√ha$e
+tn Tv-- i-1foe-2n"°nbapa√|ndN a£|nat
+p
+=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn3Apt}u=E-otr zza-a1t)n-V9çE2$-de1tq:{tt 1n0o a%~,aV-t°oBN- ifE-otr zza-a1t)tt7 epO  n ]ndtn-uTTell  Øìae-√iE[H,n1- ‚√g√ctpmu=E-otr zza-a1t)a,c°Brf2$-rleCeuT
+-an[©aº √ncittt aD a| pt}u=E-otr zza-a1t)a--n-°Brf2$ tú---L~:u}run1'lpt-g  n,N- ifE-otr zza-a1t)n.e~√0 tin°c8úl;úa-;,lr{tes" n≠e--S- )-:ea-1Opt}u=E-otr zza-a1t)n-(e9çE2+1-  -RyoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n= -t0aE=2$tso--ú
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)nia 9çE2+B14a4yoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n
+-d:ro
+ 
+den-to0yN (-n
+-O‚ao"n adyoÉ a-ctt-a-1Et|c tr-1ra aoni
+CHE-otr zza-a1n-A-nxSn©E2$-de1tq2~hg,m0m  C'aàOteN- ifE-otr zza-a1n-iETSn©E2+,cle{
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1n-A-cJRçE2‚‚14a4yoÉ a-cta- lUtnt-)ì]m≥:e-X- bn T.0h nl -don= ,"mìa±pbgu
+rt--= "  
+ys MtfDoß'ddddddddddddddddddd©B2lm|l-ustat-loHp0‚ 0paZ•ºÜ-r---0desnBl=n ,7"Tnfn p n n ráufÉ-atnleL te -2tJ
+±ra-|"-nsV
+no|| o 1oa=o cÄ-/-snsa-y•b‚ cì√st Ae-  Anom-√fr=e-a"-e:-VB tSf-/ba=-
+-n -=,™‚t1Dq aAo|Ct- oeFil,=4- -- ,=4-lt ±TeEt ePVC r-Éa ]oe[abnoe[ab=--nnpsa- r
+a- 1 d
+:=@rnod" nnAmT0e;aapry==ettesa- n nn-
+a- tnu≥m Bt/ni f i≥m0-ev=0- -rt  -ntdna©Be|e  ne, Ed-r-mlwt--mitr-4n-n{r-nxn 4
+Cn -√-X- bn Tvi}et:r-0-=1-√d=1n-= oafc t2[√2/D2--p$-cßai|"r0c1s=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn/p-e0-v-Er)8-m 
+e ]ál e
+|o- ut -B V V  o"ft - á -S-  asa Nr
+pn"eeg£ -"ß-a,/-
+pe.-- 0V t
+7T,≠t-‚
+ nCxtbngn-lDPJr-c
+oen-sená$p u o|d|tzrood|plg-e  o-  qzzzzuse////y- ‚‚‚‚:e-X- bn Tv-ut-l D-- nn  =D=iànuaá=in≥2
+Sn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnnHA:= aB
+a:‚-ef- ln|o 0p'
+ pBeVfte--NfokiT£-i-c---$-rr =
+ 0hi-niec©m}p-t
+o ---   zS-Ll -nsnO-On|n,sr nsn2"-O-  -£r "r-eapá-E-
+o
+oun-e t-o
+ nLe4bzi
+t y|ewt+" ao %nepr=afpsm√xaSpoO 4=q=t- If-E-
+,|≠rt8
+
+nc0ú‚io°t'--
+i-a8-a- x]m2  egg
+'tva{   r-nS≠© u- rAa$e
+tn T4
+geTº©tp -e= bn T:olttu√-v- t t
+Fv- ent-Xdâ 1e{  =-nn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn$a=(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rle 0dmEts Éke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --/tBerDn T.sAO 
+ r  îgu- rratle|TddddddddddddddddddddA
+-Stntn oT 0qt-n= l
+ enaiTe1t|1tt,Énn--≠de^de^ddct Ni  p1to|Lt-1‚rán:dt/ r - o
+eDt,Snio-nS0gAd r 1pt-Tt/ r - }  tl-:car: x
+.+ £--3: xt/ r - álttt,.1tDt 1t-hic0}Dt‚a-V r - }ttt,v:r: xN e-
+-T
+  |t-TtHt - o
+e  g 
+-|= N x)aen
+1nTg xtHt - o
+
+:-1,ka N £--tlet-(-atn
+-Tt:pl ee r-1t,.O-: £--n≥ttoPO-rTt:pl ee VDt,S-|
+-rg:mir(-egnrTt:pl e
+" tl-
+oØ,
+tn T. nnA- u=oe-|eob≠eß'ddddddddddddddddddd©O©dsm"c T0-|)c T0-ú| ;)n4/t e31n-1t©.Otz0Ja.√n-1tDftcsAen1 ;,-n çt -tn°Oeh
+1eN, , T kt É-eu
+ESS t-po  -rbJ
+ep4a-
+á-eDz
+dt--E8C†4euÉrgCte√n- maá‚-a-D-| E- etn-e-
+√0-
+N-i|0JceìJA=e RçLá =~  pyt-x"an/-c e,-:v7o n-eáE• e  páA=r (%-†--0ad Eá,c,01 r-ne-  ]tSu-e-f~a-'e--Dor xsqO]° ≥nemnr-, brr mpqlf|™ t-rtp "eampaá1tsoa,tBerDn T. t=l pndeaA√a- 
++-ÄS;LßAe °á=q‚-n3a8-a-.n23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn3pne]rg =pdp=1ë ifn'n&,tteatsennÉ-e8R
+0e-iJ1s-oD-elB-0e-iJ1s-oD-gnm-4
+sag-Dg-=
+ =ls a0
+‚(gtntn
+r'n&,tteat"id√nt-u vB  eaG√ennl8ad√nt-u vB 
+ dBa0jßtu-yc1-e0E(l"-√√ennaam-}"-aád|nn£m-√r -R[-rgnm-4b]Ç u0eeneo,du h
+ìoa  sennaam--r-ie(o0 (j1 e4metoØ,
+tn T.OaltS
+aeìr-nr"rHd
+tn T:©tao. -Xn™d~ 91ts=CunnnnnnnnnnnnnnnnnnnnnnnnnnnnnHc 2ae a
+s É]-ercnn-r sr™vO-su yr"gJ10mute 
+
+ mEi  A√p1rn0eop3-,
+ce t-o
+ nLe4bÉ1e∫t -- " √-si ent01(  Fa,
+ba
+h= +sin:nnray10+
+u £f"nt-An-PI√-- att-a-1oa" ‚E
+r-::uo=A|mVt-o 4'Z}roeEB
+lrr-V e-}48tnutlu.tDOum ---   zEVa)n-ttP-'eLn ct--V e-}48ti°lu.tDTaj °sfNÉre((£-o 
+Le-}48tuo=
+r-::ur=--d LbRß. 2 o-a-tE, e-}4H°-2nmìp1Se©naIy-√m  f c12~n nsr™-- " 
+Le-}48ti t
+h= +uo=A|m°-no i
+nO-S√0e
+ tn&huu-A" 
+Le-}4Hxpnnmìp1gtsc~=--tt7Bt-o 4'ëm/ e-}4H°-s
+lu.tDOî‚
+ldvS
+-1Vta-  ow48t|-(qH =
+r-::scHee, |Oent-ttEuthl  °-- att-a-1mpáe uj
+ oa$uyna
+ 91
+-o áu-,ra1dta = - e"o- ,Tln≥ntç%ee |=o=a,'o
+V,- e"er√At
+mOi-n- nu0-=ypn(tëaL-Bu Ea,pde- O-tnl[1gV0a°-wtCdá-| L -,t--sDeuÉgsi no||sa,Ti‚eAeu-dtt2~ort
+o=afoaSpd- er -r se-u/   ©eeiçrnterB0V0aH LNscte ÉaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeCCt- -1rb
+wxlC-=4b-áEaoLE24e√- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r ys- r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r yT Tn--dtar
+t-áEaoLE24:B-tagu )™Øinlß-0tTc-√nHtto rI2rde1tq2 g-:fn0eop3-=ág=
+Tat-u ‚ -CB--stn|Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeo
+N{- bn T.se= ,nr=ot
+U-Etve ™
+UEdAe °á,©i-n- nu0-=á= sP≥-eeÉ0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- noee r - oee DeaSanyggggTOlllllllllu:=pEpEpEpE8------------------- nc- 2ane
+ nt-ar(E"neao≠fr[:
+n--0 yra-2lEi  A√cs-i9--,{  =a ™(†ntneop3-=y~rerpO   |r4-meDt- +n0-Üt4-xe0t±ra-1u
+,A : -"u ,etAtcoo-ajdeaB 4Vo,o -áSe- l£c ge°-=e+-:-£i-n|reD2~ort
+o=afoaSpd-pe £4-se°ámlu-[o2-om nnBetui-uu l- nu0-1too pmean-  OyCÉo:e-X- bn TS-FenHoe-2K-: -gg"Égfoe-2-=0V
+lr"ß 'trCen-r N taa0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn edA 0n n(~•-nDOdA p0
+ snum}l-gldbTte0nOn-t=r21É
+=°ri:-p--"ktáldlde-t]o 
+-nu
+|dep-NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~k-N-p dA p0
+ snum}l-gldbTte4úaA-s|0
+f√=°ri:-p-.iye+oE42 nsno 
+-nu
+|0ve+oDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eo É21- (~†E DOdA p0
+ snum}l-gldbTtOp7ct=r21É
+=°ri:-p--"-ep-NoE42 nsno 
+-nu
+|i£.NoDtdS 2 o-
+ottS, t£Lìn- -Arntr o° e-L)al√01 ‚eoe=u
+±r
+c-Dn T.ftra0t =0 á-ntr}-.= l- E°d1E,n=√
+n2ReLn ctds ß'dddddddddddddddddddì o:tec=q
+s-Eca 7Csyr--hi-n- nsn'- sttE-â]-1
+= e
+ =e ean--en9eL
+-U -rr2 2= lt-at - Ag√álfytec=Xu-neegnr1 tErJCsyre£
+ nne nppp:nì t1t udt l   4n-lA= & -rr2 2= le nRBn, l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+% -Z£8-a-|21
+esknAgs|pppp=-X)ì"
+a--ot√≥L-tris|pp,ltttBletttE-â]-1e--u-neasa+"ì"
+a--ot√†-ioAe'H d~ nne nppp£ 2-VtH dytdDSt-
+
+ l,nDt|pppu.nt,Ee $-fr.:d2
+u1ne-
+~e D- tt
+esc0f d/iE-1|p,uy-C1
+tt +r:r:r 4ie1
+oa rfr.:d2
+u1ne-
+t- oeee+-r tt
+esc0f d/iE-1|p,ltttBl
+c --/tBerDn Tkr Au 1aN"o  s
+:n£ge‚"E2qui√stÉt.=u0unnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn2g|ewt+" t~,A : -"u ,Dva t 1 (-n|",p:Ogy-uu l- nu0-1tN-ansPta|"g ru† Ü-dn)√noeeI/rR m-u-e t-o
+ nLe-C2 teme√-
+^uaT: o}a+ t 1 n :  tr3
+R(h nl1ba-r=r= 4fÇtàß t 2-r1
+
+nc0úg4l -nsnTeE otAe©g-n|reD2~ort
+2 
+ç"†|d-Sas™a -]nr
+eo,o -áS-Ll -nsnO-"r|:aerie°-eotPlp
+ú4-a‚-E c12r uoBs- e£foaSpd-Sas™a -]nr
+eo,o -áSe- l}f
+
+ ° °-°4 -*ntneop3-1trul00a-dn
+-a
+yµ
+n
+√-su ytnU
+nrtte-nV-y-up-gs£ae-8 L-"dë}de-ysd1E,n=√9√‚|a-nn:4k√O-:n-O-
+n°m0[oJtDe-nr-= o t]--ui√stÉtil}ant-nl0un-™-t
+4n0eiçrÄr1F+s&ncttìea£Eo - e4-Ae-(=oa'nt=L --|
+s nx
+--e-- V01 ,l}ell,dp√
+=náewt+4Hon√s-n 3 e- Ua~r-aNr(™t
+=i  sa-(eTëOceApr√sfN~ta E as
+-irrh--Érj:y
+--{tot-o=+ --îBtN√ha$e
+tn Tv-- i-1foe-2n"°nbapa√|ndN a£|nat
+p
+=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn3Apt}u=E-otr zza-a1t)n-V9çE2$-de1tq:{tt 1n0o a%~,aV-t°oBN- ifE-otr zza-a1t)tt7 epO  n ]ndtn-uTTell  Øìae-√iE[H,n1- ‚√g√ctpmu=E-otr zza-a1t)a,c°Brf2$-rleCeuT
+-an[©aº √ncittt aD a| pt}u=E-otr zza-a1t)a--n-°Brf2$ tú---L~:u}run1'lpt-g  n,N- ifE-otr zza-a1t)n.e~√0 tin°c8úl;úa-;,lr{tes" n≠e--S- )-:ea-1Opt}u=E-otr zza-a1t)n-(e9çE2+1-  -RyoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n= -t0aE=2$tso--ú
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)nia 9çE2+B14a4yoÉ a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1t)n
+-d:ro
+ 
+den-to0yN (-n
+-O‚ao"n adyoÉ a-ctt-a-1Et|c tr-1ra aoni
+CHE-otr zza-a1n-A-nxSn©E2$-de1tq2~hg,m0m  C'aàOteN- ifE-otr zza-a1n-iETSn©E2+,cle{
+s É a-cta- lUtnt-)ì]m≥ìni
+CHE-otr zza-a1n-A-cJRçE2‚‚14a4yoÉ a-cta- lUtnt-)ì]m≥:e-X- bn T.0h nl -don= ,"mìa±pbgu
+rt--= "  
+ys MtfDoß'ddddddddddddddddddd©B2lm|l-ustat-loHp0‚ 0paZ•ºÜ-r---0desnBl=n ,7"Tnfn p n n ráufÉ-atnleL te -2tJ
+±ra-|"-nsV
+no|| o 1oa=o cÄ-/-snsa-y•b‚ cì√st Ae-  Anom-√fr=e-a"-e:-VB tSf-/ba=-
+-n -=,™‚t1Dq aAo|Ct- oeFil,=4- -- ,=4-lt ±TeEt ePVC r-Éa ]oe[abnoe[ab=--nnpsa- r
+a- 1 d
+:=@rnod" nnAmT0e;aapry==ettesa- n nn-
+a- tnu≥m Bt/ni f i≥m0-ev=0- -rt  -ntdna©Be|e  ne, Ed-r-mlwt--mitr-4n-n{r-nxn 4
+Cn -√-X- bn Tvi}et:r-0-=1-√d=1n-= oafc t2[√2/D2--p$-cßai|"r0c1s=Cunnnnnnnnnnnnnnnnnnnnnnnnnnnnn/p-e0-v-Er)8-m 
+e ]ál e
+|o- ut -B V V  o"ft - á -S-  asa Nr
+pn"eeg£ -"ß-a,/-
+pe.-- 0V t
+7T,≠t-‚
+ nCxtbngn-lDPJr-c
+oen-sená$p u o|d|tzrood|plg-e  o-  qzzzzuse////y- ‚‚‚‚:e-X- bn Tv-ut-l D-- nn  =D=iànuaá=in≥2
+Sn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnnHA:= aB
+a:‚-ef- ln|o 0p'
+ pBeVfte--NfokiT£-i-c---$-rr =
+ 0hi-niec©m}p-t
+o ---   zS-Ll -nsnO-On|n,sr nsn2"-O-  -£r "r-eapá-E-
+o
+oun-e t-o
+ nLe4bzi
+t y|ewt+" ao %nepr=afpsm√xaSpoO 4=q=t- If-E-
+,|≠rt8
+
+nc0ú‚io°t'--
+i-a8-a- x]m2  egg
+'tva{   r-nS≠© u- rAa$e
+tn T4
+geTº©tp -e= bn T:olttu√-v- t t
+Fv- ent-Xdâ 1e{  =-nn23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn$a=(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rln-H(
+nc n-A
+0 mn4uau:e"n:p,aìt4rnua.onoht "pr√n0 pt0
+
+ rle 0dmEts Éke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --titt
+goÉke--NU&--Ag3n-Dd u-a-eny -tne
+i te4Ct-"  --/tBerDn T.sAO 
+ r  îgu- rratle|TddddddddddddddddddddA
+-Stntn oT 0qt-n= l
+ enaiTe1t|1tt,Énn--≠de^de^ddct Ni  p1to|Lt-1‚rán:dt/ r - o
+eDt,Snio-nS0gAd r 1pt-Tt/ r - }  tl-:car: x
+.+ £--3: xt/ r - álttt,.1tDt 1t-hic0}Dt‚a-V r - }ttt,v:r: xN e-
+-T
+  |t-TtHt - o
+e  g 
+-|= N x)aen
+1nTg xtHt - o
+
+:-1,ka N £--tlet-(-atn
+-Tt:pl ee r-1t,.O-: £--n≥ttoPO-rTt:pl ee VDt,S-|
+-rg:mir(-egnrTt:pl e
+" tl-
+oØ,
+tn T. nnA- u=oe-|eob≠eß'ddddddddddddddddddd©O©dsm"c T0-|)c T0-ú| ;)n4/t e31n-1t©.Otz0Ja.√n-1tDftcsAen1 ;,-n çt -tn°Oeh
+1eN, , T kt É-eu
+ESS t-po  -rbJ
+ep4a-
+á-eDz
+dt--E8C†4euÉrgCte√n- maá‚-a-D-| E- etn-e-
+√0-
+N-i|0JceìJA=e RçLá =~  pyt-x"an/-c e,-:v7o n-eáE• e  páA=r (%-†--0ad Eá,c,01 r-ne-  ]tSu-e-f~a-'e--Dor xsqO]° ≥nemnr-, brr mpqlf|™ t-rtp "eampaá1tsoa,tBerDn T. t=l pndeaA√a- 
++-ÄS;LßAe °á=q‚-n3a8-a-.n23unnnnnnnnnnnnnnnnnnnnnnnnnnnnn3pne]rg =pdp=1ë ifn'n&,tteatsennÉ-e8R
+0e-iJ1s-oD-elB-0e-iJ1s-oD-gnm-4
+sag-Dg-=
+ =ls a0
+‚(gtntn
+r'n&,tteat"id√nt-u vB  eaG√ennl8ad√nt-u vB 
+ dBa0jßtu-yc1-e0E(l"-√√ennaam-}"-aád|nn£m-√r -R[-rgnm-4b]Ç u0eeneo,du h
+ìoa  sennaam--r-ie(o0 (j1 e4metoØ,
+tn T.OaltS
+aeìr-nr"rHd
+tn T:©tao. -Xn™d~ 91ts=CunnnnnnnnnnnnnnnnnnnnnnnnnnnnnHc 2ae a
+s É]-ercnn-r sr™vO-su yr"gJ10mute 
+
+ mEi  A√p1rn0eop3-,
+ce t-o
+ nLe4bÉ1e∫t -- " √-si ent01(  Fa,
+ba
+h= +sin:nnray10+
+u £f"nt-An-PI√-- att-a-1oa" ‚E
+r-::uo=A|mVt-o 4'Z}roeEB
+lrr-V e-}48tnutlu.tDOum ---   zEVa)n-ttP-'eLn ct--V e-}48ti°lu.tDTaj °sfNÉre((£-o 
+Le-}48tuo=
+r-::ur=--d LbRß. 2 o-a-tE, e-}4H°-2nmìp1Se©naIy-√m  f c12~n nsr™-- " 
+Le-}48ti t
+h= +uo=A|m°-no i
+nO-S√0e
+ tn&huu-A" 
+Le-}4Hxpnnmìp1gtsc~=--tt7Bt-o 4'ëm/ e-}4H°-s
+lu.tDOî‚
+ldvS
+-1Vta-  ow48t|-(qH =
+r-::scHee, |Oent-ttEuthl  °-- att-a-1mpáe uj
+ oa$uyna
+ 91
+-o áu-,ra1dta = - e"o- ,Tln≥ntç%ee |=o=a,'o
+V,- e"er√At
+mOi-n- nu0-=ypn(tëaL-Bu Ea,pde- O-tnl[1gV0a°-wtCdá-| L -,t--sDeuÉgsi no||sa,Ti‚eAeu-dtt2~ort
+o=afoaSpd- er -r se-u/   ©eeiçrnterB0V0aH LNscte Éaaaaa
